@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2021%2F01%2F26%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[如何学习一门知识]]></title>
+    <url>%2F2019%2F09%2F30%2F%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[两种学习方法 1.1 了解知识的产生背景，了解知识的大致框架，慢慢往里面填空。 1.2 做测试，错了给自己电击反馈 学习的一些技巧 2.1 确定学习的输入输出 2.2 康奈尔笔记法，学习的内容自己用自己的话复述出来，最后做个整体总结。]]></content>
+      <categories>
+        <category>哲学与生活</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pandas基本操作]]></title>
+    <url>%2F2019%2F09%2F18%2Fpandas%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[1. pandas DataFrame对象的创建12dates = pd.date_range('20130101', periods=6)df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list('ABCD')) 2. 操作数据12345678910111213141516171819202122232425262728293031323334353637df.head()df.tail(3)df.indexdf.describe()# 单列索引df.iloc[1:2,2:]# 特定索引df.iloc[[1,2],[2,3]]# 布尔索引df[df&gt;0.5] = 1# 赋值列df2['E'] = ['A,','B','C','E','3','3']# 赋值行df2.loc['e'] = [1,2,3,4,5]#访问某个位置df2.iat[0,1]#删除带有缺失值的行df1.dropna(how = 'any')#填充空数据df1.fillna(value=5)# 获得每一列的平均值、df1.mean()# 获得每一行的平均值df1.mean(1)# 修改行标签df1.index = ['A','B','C']#修改行列data.rename(index=&#123;'A':'D', 'B':'E', 'C':'F'&#125;, columns=&#123;'a':'d','b':'e','c':'f'&#125;, inplace = True)#连接两个表pe = [df1,df2]pd.concat(pe)#数据库连接风格left = pd.DataFrame(&#123;'key': ['foo', 'foo'], 'lval': [1, 2]&#125;)right = pd.DataFrame(&#123;'key': ['foo', 'foo'], 'rval': [4, 5]&#125;)pd.merge(left, right, on='key')#写入文件df1.to_csv('foo.csv')]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+</search>
