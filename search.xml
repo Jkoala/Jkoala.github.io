@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2021%2F01%2F26%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[如何学习一门知识]]></title>
     <url>%2F2019%2F09%2F30%2F%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E7%9F%A5%E8%AF%86%2F</url>
     <content type="text"><![CDATA[两种学习方法 1.1 了解知识的产生背景，了解知识的大致框架，慢慢往里面填空。 1.2 做测试，错了给自己电击反馈 学习的一些技巧 2.1 确定学习的输入输出 2.2 康奈尔笔记法，学习的内容自己用自己的话复述出来，最后做个整体总结。]]></content>
