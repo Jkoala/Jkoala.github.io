@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微信小程序原生组件的坑]]></title>
+    <url>%2F2021%2F09%2F30%2Fmpvue%E4%BD%BF%E7%94%A8%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6%E7%9A%84%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[style 1&lt;scroll-view :style="&#123;'height': '300px'&#125;"&gt;&lt;/scroll-view&gt;要设置高度 原生的事件 12345678910111213141516&lt;scroll-view :style="&#123;'height': '300px'&#125;" :scroll-y="true" @scrolltolower="scrolltolower" @scroll="scroll" &gt; &lt;div :style="&#123;'height': '200px','background-color':'red'&#125;"&gt;tyuiolpo&lt;/div&gt; &lt;div class="" :style="&#123;'height': '200px','background-color':'red'&#125;"&gt;dsdsd &lt;/div&gt;&lt;div class="" :style="&#123;'height': '200px','background-color':'red'&#125;"&gt;grytyju&lt;/div&gt;&lt;/scroll-view&gt; 数据部分 methods: &#123; scrolltolower()&#123; console.log(7) &#125;, scroll(e) &#123; console.log(6) console.log(e) &#125;, &#125;]]></content>
+      <categories>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java 死锁代码]]></title>
+    <url>%2F2020%2F12%2F30%2FJAVA%E6%AD%BB%E9%94%81%E4%BB%A3%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243package jvm;/** * @author devin * @version 1.0.2 * @date 2021-01-17 14:17 */import java.util.concurrent.TimeUnit;/** * 资源类 */class HoldLockThread implements Runnable&#123; private String lockA; private String lockB; // 持有自己的锁，还想得到别人的锁 public HoldLockThread(String lockA, String lockB) &#123; this.lockA = lockA; this.lockB = lockB; &#125; @Override public void run() &#123; synchronized (lockA) &#123; System.out.println(Thread.currentThread().getName() + "\t 自己持有" + lockA + "\t 尝试获取：" + lockB); try &#123; TimeUnit.SECONDS.sleep(2); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; synchronized (lockB) &#123; System.out.println(Thread.currentThread().getName() + "\t 自己持有" + lockB + "\t 尝试获取：" + lockA); &#125; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Es6 模块的导入和导出]]></title>
+    <url>%2F2020%2F10%2F30%2Fes6%20%20%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%2F</url>
+    <content type="text"><![CDATA[b.js 12345678export function fun()&#123; console.log("fun1")&#125;export let person = &#123; name:"devin", age:12&#125; c.js 12345678let a = 12let fun = function()&#123; console.log("function")&#125;export default&#123; a,fun&#125; index.html 123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;Title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script type="module" &gt; // import * as util from './a.js'; // //import &#123;fun, person&#125; from "./a.js"; // console.log(util.fun(),util.person) // import a from './exportDefault'; // a.show(); // console.log(a.a); // import * as util from "./b.js" import c from "./c.js" // console.log(util.fun) console.log(c.a) c.fun() &lt;/script&gt;&lt;/body&gt;&lt;/html&gt;]]></content>
+      <categories>
+        <category>node.js</category>
+      </categories>
+      <tags>
+        <tag>语法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何学习一门知识]]></title>
     <url>%2F2019%2F09%2F30%2F%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E7%9F%A5%E8%AF%86%2F</url>
     <content type="text"><![CDATA[两种学习方法 1.1 了解知识的产生背景，了解知识的大致框架，慢慢往里面填空。 1.2 做测试，错了给自己电击反馈 学习的一些技巧 2.1 确定学习的输入输出 2.2 康奈尔笔记法，学习的内容自己用自己的话复述出来，最后做个整体总结。]]></content>
