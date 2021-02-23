@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[责任链模式]]></title>
+    <url>%2F2021%2F02%2F23%2F%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[z责任链模式: 新建请求 新建各级主管 新建各级主管建立链表 初级主管开始 判断能否处理 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118public class AbstractLeaveHandler &#123; /**直接主管审批处理的请假天数*/ protected int MIN = 1; /**部门经理处理的请假天数*/ protected int MIDDLE = 3; /**总经理处理的请假天数*/ protected int MAX = 30; /**领导名称*/ protected String handlerName; /**下一个处理节点（即更高级别的领导）*/ protected AbstractLeaveHandler nextHandler; /**设置下一节点*/ protected void setNextHandler(AbstractLeaveHandler handler)&#123; this.nextHandler = handler; &#125; /**处理请假的请求，子类实现*/ protected void handlerRequest(LeaveRequest request)&#123; &#125;&#125;//直接主管public class DirectLeaderLeaveHandler extends AbstractLeaveHandler&#123; public DirectLeaderLeaveHandler(String name) &#123; this.handlerName = name; &#125; @Override protected void handlerRequest(LeaveRequest request) &#123; if(request.getLeaveDays() &lt;= this.MIN)&#123; System.out.println("直接主管:" + handlerName + ",已经处理;流程结束。"); return; &#125; if(null != this.nextHandler)&#123; this.nextHandler.handlerRequest(request); &#125;else&#123; System.out.println("审批拒绝！"); &#125; &#125;&#125;//部门经理public class DeptManagerLeaveHandler extends AbstractLeaveHandler&#123; public DeptManagerLeaveHandler(String name) &#123; this.handlerName = name; &#125; @Override protected void handlerRequest(LeaveRequest request) &#123; if(request.getLeaveDays() &gt;this.MIN &amp;&amp; request.getLeaveDays() &lt;= this.MIDDLE)&#123; System.out.println("部门经理:" + handlerName + ",已经处理;流程结束。"); return; &#125; if(null != this.nextHandler)&#123; this.nextHandler.handlerRequest(request); &#125;else&#123; System.out.println("审批拒绝！"); &#125; &#125;&#125;//总经理public class GManagerLeaveHandler extends AbstractLeaveHandler&#123; public GManagerLeaveHandler(String name) &#123; this.handlerName = name; &#125; @Override protected void handlerRequest(LeaveRequest request) &#123; if(request.getLeaveDays() &gt; this.MIDDLE &amp;&amp; request.getLeaveDays() &lt;= this.MAX)&#123; System.out.println("总经理:" + handlerName + ",已经处理;流程结束。"); return; &#125; if(null != this.nextHandler)&#123; this.nextHandler.handlerRequest(request); &#125;else&#123; System.out.println("审批拒绝！"); &#125; &#125;&#125;//请求public class LeaveRequest &#123; //请求天数和名字 private int leaveDays; private String name;&#125;//客户端public class ResponsibilityTest &#123; public static void main(String[] args) &#123; LeaveRequest request = LeaveRequest.builder().leaveDays(5).name("小明").build(); AbstractLeaveHandler directLeaderLeaveHandler = new DirectLeaderLeaveHandler("县令"); DeptManagerLeaveHandler deptManagerLeaveHandler = new DeptManagerLeaveHandler("知府"); GManagerLeaveHandler gManagerLeaveHandler = new GManagerLeaveHandler("京兆尹"); directLeaderLeaveHandler.setNextHandler(deptManagerLeaveHandler); deptManagerLeaveHandler.setNextHandler(gManagerLeaveHandler); directLeaderLeaveHandler.handlerRequest(request); &#125;&#125;]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[策略模式]]></title>
+    <url>%2F2021%2F02%2F23%2F%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253//策略类public abstract class Strategy &#123; public abstract void algorithmInterface();&#125;//策略A 和 策略Bpublic class StrategyA extends Strategy&#123; @Override public void algorithmInterface() &#123; System.out.println("算法A 的思想"); &#125;&#125;// 策略Bpublic class StrategyB extends Strategy&#123; @Override public void algorithmInterface() &#123; System.out.println("算法B 的思想"); &#125;&#125;// 策略的执行对象public class Context &#123; Strategy strategy; public Context(Strategy strategy)&#123; this.strategy = strategy; &#125; public void contextInterFace()&#123; strategy.algorithmInterface(); &#125;&#125;//客户端public class Client &#123; public static void main(String[] args) &#123; Context context; context = new Context(new StrategyA()); context.contextInterFace(); context = new Context(new StrategyB()); context.contextInterFace(); &#125;&#125;]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>策略</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AQS实现锁的框架]]></title>
+    <url>%2F2021%2F02%2F17%2F%E5%AE%9E%E7%8E%B0%E9%94%81%E7%9A%84%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[s]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[CountDownLatch 和 CyclicBarrier]]></title>
+    <url>%2F2021%2F02%2F17%2FCountDownLatch-%E5%BC%80%E5%A7%8B%E6%B8%B8%E6%88%8F%E6%A1%88%E5%88%97%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637public class CountDownLatchTest &#123; public static void main(String[] args) throws InterruptedException &#123; CountDownLatch latch = new CountDownLatch(4); for(int i = 0;i &lt; latch.getCount();i++)&#123; new Thread(new MyThread(latch),"player" + i).start(); &#125; System.out.println("等待 所所有玩家 准备好"); latch.await(); System.out.println("开始游戏"); &#125; private static class MyThread implements Runnable&#123; private CountDownLatch latch; public MyThread(CountDownLatch latch)&#123; this.latch = latch; &#125; @SneakyThrows @Override public void run() &#123; Random rand = null; try &#123; rand = new Random(); int randomNum = rand.nextInt((3000 - 1000) +1 ) + 1000; Thread.sleep(randomNum); System.out.println(Thread.currentThread().getName() + "已经准备好 " + "所使用的时间是：" + randomNum ); latch.countDown(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; &#125; &#125;&#125; 1234567891011121314151617181920212223242526272829303132333435public class CyclicBarrierTest &#123; public static void main(String[] args) &#123; CyclicBarrier barrier = new CyclicBarrier(3); for(int i = 0; i &lt; barrier.getParties(); i++)&#123; new Thread(new MyRunnable(barrier), "队友"+i).start(); &#125; System.out.println("main function is finished."); &#125; private static class MyRunnable implements Runnable&#123; private CyclicBarrier barrier; public MyRunnable(CyclicBarrier barrier)&#123; this.barrier = barrier; &#125; @Override public void run() &#123; for(int i = 0; i &lt; 3; i++) &#123; try &#123; Random rand = new Random(); int randomNum = rand.nextInt((3000 - 1000) + 1) + 1000;//产生1000到3000之间的随机整数 Thread.sleep(randomNum); System.out.println(Thread.currentThread().getName() + ", 通过了第"+i+"个障碍物, 使用了 "+((double)randomNum/1000)+"s"); this.barrier.await(); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; catch (BrokenBarrierException e) &#123; e.printStackTrace(); &#125; &#125; &#125; &#125;&#125; 总结：CountDownLatch和CyclicBarrier都有让多个线程等待同步然后再开始下一步动作的意思，但是CountDownLatch的下一步的动作实施者是主线程，具有不可重复性；而CyclicBarrier的下一步动作实施者还是“其他线程”本身，具有往复多次实施动作的特点。]]></content>
+      <categories>
+        <category>javax系列</category>
+      </categories>
+      <tags>
+        <tag>多线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[String StringBuilder StringBuffer]]></title>
+    <url>%2F2021%2F02%2F16%2FString-StringBuilder-StringBuffer%2F</url>
+    <content type="text"><![CDATA[String StringBuffer StringBuilder String的值是不可变的，这就导致每次对String的操作都会生成新的String对象，不仅效率低下，而且浪费大量优先的内存空间 StringBuffer是可变类，和线程安全的字符串操作类，任何对它指向的字符串的操作都不会产生新的对象。每个StringBuffer对象都有一定的缓冲区容量，当字符串大小没有超过容量时，不会分配新的容量，当字符串大小超过容量时，会自动增加容量 可变类，速度更快 线程安全 线程不安全]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>对比</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正则表达式]]></title>
+    <url>%2F2021%2F02%2F16%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718/** * @author devin * @version 1.0.2 * @date 2021-02-16 23:23 */public class Zhenze &#123; // 待匹配字符串 public static void main(String[] args) &#123; String str = "湖北省武汉市1573rr4562"; Pattern p = Pattern.compile("[1-9]+"); Matcher m = p.matcher(str); while(m.find())&#123; System.out.println(m.group()); &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[深拷贝 浅拷贝解析]]></title>
+    <url>%2F2021%2F02%2F15%2F%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E6%B5%85%E6%8B%B7%E8%B4%9D%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>java系列</category>
+      </categories>
+      <tags>
+        <tag>java语法基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python 爬取图片]]></title>
     <url>%2F2021%2F02%2F14%2Fpython-%E7%88%AC%E5%8F%96%E5%9B%BE%E7%89%87%2F</url>
-    <content type="text"><![CDATA[思路分析： ​ requests 获得需要爬取的网页 ​ 将爬取的网页数据做成BeautifulSoup ​ 应用soup 的API 找到需要的标签属性 通过标签属性获得二进制字节保存 1234567891011import requestsfrom bs4 import BeautifulSoupdata.encoding = data.apparent_encodingsoup = BeautifulSoup(data.text)link = soup.select_one("#container &gt; div &gt; div &gt; div:nth-child(3) &gt; div.list_con_box &gt; div.zt_con_img &gt; dl &gt; dd &gt; ul &gt; li:nth-child(1) &gt; a &gt; img")['src']f = open("D://a.jpg","wb")pic_data = requests.get(link)f.write(pic_data.content)f.close()]]></content>
+    <content type="text"><![CDATA[思路分析： ​ requests 获得需要爬取的网页 ​ 将爬取的网页数据做成BeautifulSoup ​ 应用soup 的API 找到需要的标签属性 通过标签属性获得二进制字节保存 12345678910111213import requestsfrom bs4 import BeautifulSoupdata = requests.get("url")data.encoding = data.apparent_encodingsoup = BeautifulSoup(data.text)link = soup.select_one("#container &gt; div &gt; div &gt; div:nth-child(3) &gt; div.list_con_box &gt; div.zt_con_img &gt; dl &gt; dd &gt; ul &gt; li:nth-child(1) &gt; a &gt; img")['src']f = open("D://a.jpg","wb")pic_data = requests.get(link)f.write(pic_data.content)f.close()]]></content>
       <tags>
         <tag>是</tag>
       </tags>
@@ -81,7 +149,7 @@
   <entry>
     <title><![CDATA[hexo使用]]></title>
     <url>%2F2021%2F02%2F13%2Fhexo%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[新建一篇文章 123hexo new "博客名称"hexo new page --path about/me "About me" 部署博客 1234# 编译hexo g# 发布博客hexo d 启动服务器 1hexo server 多分类 12345categories:- Diarytags:- PS3- Games 分类和标签的使用规范 12分类：优先级 以领域划分 机器学习 生活 web开发 标签：语言 读书笔记 代码]]></content>
+    <content type="text"><![CDATA[新建一篇文章 123hexo new "博客名称"hexo new page --path about/me "About me" 部署博客 1234# 编译hexo g# 发布博客hexo d 启动服务器 1hexo server 多分类 12345categories:- Diarytags:- PS3- Games 分类和标签的使用规范 12分类：优先级 以领域划分 机器学习 生活 web开发 java系列标签：语言 读书笔记 代码 总结]]></content>
       <tags>
         <tag>规范</tag>
       </tags>

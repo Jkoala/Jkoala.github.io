@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="思路分析： ​    requests 获得需要爬取的网页 ​    将爬取的网页数据做成BeautifulSoup ​    应用soup 的API 找到需要的标签属性   通过标签属性获得二进制字节保存  1234567891011import requestsfrom bs4 import BeautifulSoupdata.encoding = data.apparent_encodin">
+  <meta name="description" content="思路分析： ​    requests 获得需要爬取的网页 ​    将爬取的网页数据做成BeautifulSoup ​    应用soup 的API 找到需要的标签属性   通过标签属性获得二进制字节保存  12345678910111213import requestsfrom bs4 import BeautifulSoupdata = requests.get(&quot;url&quot;)data.en">
 <meta name="keywords" content="是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 爬取图片">
 <meta property="og:url" content="http://yoursite.com/2021/02/14/python-爬取图片/index.html">
 <meta property="og:site_name" content="水浅">
-<meta property="og:description" content="思路分析： ​    requests 获得需要爬取的网页 ​    将爬取的网页数据做成BeautifulSoup ​    应用soup 的API 找到需要的标签属性   通过标签属性获得二进制字节保存  1234567891011import requestsfrom bs4 import BeautifulSoupdata.encoding = data.apparent_encodin">
+<meta property="og:description" content="思路分析： ​    requests 获得需要爬取的网页 ​    将爬取的网页数据做成BeautifulSoup ​    应用soup 的API 找到需要的标签属性   通过标签属性获得二进制字节保存  12345678910111213import requestsfrom bs4 import BeautifulSoupdata = requests.get(&quot;url&quot;)data.en">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-02-14T08:31:06.477Z">
+<meta property="og:updated_time" content="2021-02-14T09:13:47.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 爬取图片">
-<meta name="twitter:description" content="思路分析： ​    requests 获得需要爬取的网页 ​    将爬取的网页数据做成BeautifulSoup ​    应用soup 的API 找到需要的标签属性   通过标签属性获得二进制字节保存  1234567891011import requestsfrom bs4 import BeautifulSoupdata.encoding = data.apparent_encodin">
+<meta name="twitter:description" content="思路分析： ​    requests 获得需要爬取的网页 ​    将爬取的网页数据做成BeautifulSoup ​    应用soup 的API 找到需要的标签属性   通过标签属性获得二进制字节保存  12345678910111213import requestsfrom bs4 import BeautifulSoupdata = requests.get(&quot;url&quot;)data.en">
 
 
 
@@ -241,7 +241,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">9</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">14</span></a>
 
   </li>
         
@@ -260,7 +260,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">5</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">9</span></a>
 
   </li>
 
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="Created: 2021-02-14 15:44:11 / Modified: 16:31:06" itemprop="dateCreated datePublished" datetime="2021-02-14T15:44:11+08:00">2021-02-14</time>
+              <time title="Created: 2021-02-14 15:44:11 / Modified: 17:13:47" itemprop="dateCreated datePublished" datetime="2021-02-14T15:44:11+08:00">2021-02-14</time>
             
 
             
@@ -429,7 +429,7 @@
 <p>​    应用soup 的API 找到需要的标签属性</p>
 <p>  通过标签属性获得二进制字节保存</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">data.encoding = data.apparent_encoding</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(data.text)</span><br><span class="line">link = soup.select_one(<span class="string">"#container &gt; div &gt; div &gt; div:nth-child(3) &gt; div.list_con_box &gt; div.zt_con_img &gt; dl &gt; dd &gt; ul &gt; li:nth-child(1) &gt; a &gt; img"</span>)[<span class="string">'src'</span>]</span><br><span class="line">f = open(<span class="string">"D://a.jpg"</span>,<span class="string">"wb"</span>)</span><br><span class="line"></span><br><span class="line">pic_data = requests.get(link)</span><br><span class="line">f.write(pic_data.content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">data = requests.get(<span class="string">"url"</span>)</span><br><span class="line">data.encoding = data.apparent_encoding</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(data.text)</span><br><span class="line">link = soup.select_one(<span class="string">"#container &gt; div &gt; div &gt; div:nth-child(3) &gt; div.list_con_box &gt; div.zt_con_img &gt; dl &gt; dd &gt; ul &gt; li:nth-child(1) &gt; a &gt; img"</span>)[<span class="string">'src'</span>]</span><br><span class="line">f = open(<span class="string">"D://a.jpg"</span>,<span class="string">"wb"</span>)</span><br><span class="line"></span><br><span class="line">pic_data = requests.get(link)</span><br><span class="line">f.write(pic_data.content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
 
 
       
@@ -501,6 +501,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2021/02/15/深拷贝-浅拷贝解析/" rel="prev" title="深拷贝 浅拷贝解析">
+                深拷贝 浅拷贝解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -562,7 +566,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -585,7 +589,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -616,7 +628,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
