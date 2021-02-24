@@ -26,10 +26,10 @@
   </entry>
   <entry>
     <title><![CDATA[CountDownLatch 和 CyclicBarrier]]></title>
-    <url>%2F2021%2F02%2F17%2FCountDownLatch-%E5%BC%80%E5%A7%8B%E6%B8%B8%E6%88%8F%E6%A1%88%E5%88%97%2F</url>
+    <url>%2F2021%2F02%2F17%2FCountDownLatch%20%E5%92%8C%20CyclicBarrier%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637public class CountDownLatchTest &#123; public static void main(String[] args) throws InterruptedException &#123; CountDownLatch latch = new CountDownLatch(4); for(int i = 0;i &lt; latch.getCount();i++)&#123; new Thread(new MyThread(latch),"player" + i).start(); &#125; System.out.println("等待 所所有玩家 准备好"); latch.await(); System.out.println("开始游戏"); &#125; private static class MyThread implements Runnable&#123; private CountDownLatch latch; public MyThread(CountDownLatch latch)&#123; this.latch = latch; &#125; @SneakyThrows @Override public void run() &#123; Random rand = null; try &#123; rand = new Random(); int randomNum = rand.nextInt((3000 - 1000) +1 ) + 1000; Thread.sleep(randomNum); System.out.println(Thread.currentThread().getName() + "已经准备好 " + "所使用的时间是：" + randomNum ); latch.countDown(); &#125; catch (Exception e) &#123; e.printStackTrace(); &#125; &#125; &#125;&#125; 1234567891011121314151617181920212223242526272829303132333435public class CyclicBarrierTest &#123; public static void main(String[] args) &#123; CyclicBarrier barrier = new CyclicBarrier(3); for(int i = 0; i &lt; barrier.getParties(); i++)&#123; new Thread(new MyRunnable(barrier), "队友"+i).start(); &#125; System.out.println("main function is finished."); &#125; private static class MyRunnable implements Runnable&#123; private CyclicBarrier barrier; public MyRunnable(CyclicBarrier barrier)&#123; this.barrier = barrier; &#125; @Override public void run() &#123; for(int i = 0; i &lt; 3; i++) &#123; try &#123; Random rand = new Random(); int randomNum = rand.nextInt((3000 - 1000) + 1) + 1000;//产生1000到3000之间的随机整数 Thread.sleep(randomNum); System.out.println(Thread.currentThread().getName() + ", 通过了第"+i+"个障碍物, 使用了 "+((double)randomNum/1000)+"s"); this.barrier.await(); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; catch (BrokenBarrierException e) &#123; e.printStackTrace(); &#125; &#125; &#125; &#125;&#125; 总结：CountDownLatch和CyclicBarrier都有让多个线程等待同步然后再开始下一步动作的意思，但是CountDownLatch的下一步的动作实施者是主线程，具有不可重复性；而CyclicBarrier的下一步动作实施者还是“其他线程”本身，具有往复多次实施动作的特点。]]></content>
       <categories>
-        <category>javax系列</category>
+        <category>java系列</category>
       </categories>
       <tags>
         <tag>多线程</tag>
@@ -51,7 +51,7 @@
     <url>%2F2021%2F02%2F16%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718/** * @author devin * @version 1.0.2 * @date 2021-02-16 23:23 */public class Zhenze &#123; // 待匹配字符串 public static void main(String[] args) &#123; String str = "湖北省武汉市1573rr4562"; Pattern p = Pattern.compile("[1-9]+"); Matcher m = p.matcher(str); while(m.find())&#123; System.out.println(m.group()); &#125; &#125;&#125;]]></content>
       <categories>
-        <category>java</category>
+        <category>java系列</category>
       </categories>
       <tags>
         <tag>正则表达式</tag>
@@ -159,11 +159,8 @@
     <url>%2F2020%2F12%2F30%2FJAVA%E6%AD%BB%E9%94%81%E4%BB%A3%E7%A0%81%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243package jvm;/** * @author devin * @version 1.0.2 * @date 2021-01-17 14:17 */import java.util.concurrent.TimeUnit;/** * 资源类 */class HoldLockThread implements Runnable&#123; private String lockA; private String lockB; // 持有自己的锁，还想得到别人的锁 public HoldLockThread(String lockA, String lockB) &#123; this.lockA = lockA; this.lockB = lockB; &#125; @Override public void run() &#123; synchronized (lockA) &#123; System.out.println(Thread.currentThread().getName() + "\t 自己持有" + lockA + "\t 尝试获取：" + lockB); try &#123; TimeUnit.SECONDS.sleep(2); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; synchronized (lockB) &#123; System.out.println(Thread.currentThread().getName() + "\t 自己持有" + lockB + "\t 尝试获取：" + lockA); &#125; &#125; &#125;&#125;]]></content>
       <categories>
-        <category>java</category>
+        <category>java系列</category>
       </categories>
-      <tags>
-        <tag>虚拟机</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[Es6 模块的导入和导出]]></title>

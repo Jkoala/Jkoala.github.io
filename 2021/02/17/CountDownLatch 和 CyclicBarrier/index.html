@@ -96,22 +96,25 @@
 
 
 
-  <meta name="keywords" content="java语法基础">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637public class CountDownLatchTest &amp;#123;    public static void main(String[] args) throws InterruptedException &amp;#123;        CountDownLat">
+<meta name="keywords" content="多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深拷贝 浅拷贝解析">
-<meta property="og:url" content="http://yoursite.com/2021/02/15/深拷贝-浅拷贝解析/index.html">
+<meta property="og:title" content="CountDownLatch 和 CyclicBarrier">
+<meta property="og:url" content="http://yoursite.com/2021/02/17/CountDownLatch 和 CyclicBarrier/index.html">
 <meta property="og:site_name" content="水浅">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637public class CountDownLatchTest &amp;#123;    public static void main(String[] args) throws InterruptedException &amp;#123;        CountDownLat">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-02-15T14:32:25.009Z">
+<meta property="og:updated_time" content="2021-02-24T00:50:25.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深拷贝 浅拷贝解析">
+<meta name="twitter:title" content="CountDownLatch 和 CyclicBarrier">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637public class CountDownLatchTest &amp;#123;    public static void main(String[] args) throws InterruptedException &amp;#123;        CountDownLat">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/02/15/深拷贝-浅拷贝解析/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/17/CountDownLatch 和 CyclicBarrier/">
 
 
 
@@ -121,7 +124,7 @@
   };
 </script>
 
-  <title>深拷贝 浅拷贝解析 | 水浅</title>
+  <title>CountDownLatch 和 CyclicBarrier | 水浅</title>
   
 
 
@@ -338,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/15/深拷贝-浅拷贝解析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/17/CountDownLatch 和 CyclicBarrier/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Author">
@@ -355,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深拷贝 浅拷贝解析
+          <h1 class="post-title" itemprop="name headline">CountDownLatch 和 CyclicBarrier
 
               
             
@@ -381,12 +384,24 @@
                 
               
 
-              <time title="Created: 2021-02-15 10:34:51 / Modified: 22:32:25" itemprop="dateCreated datePublished" datetime="2021-02-15T10:34:51+08:00">2021-02-15</time>
+              <time title="Created: 2021-02-17 16:01:04" itemprop="dateCreated datePublished" datetime="2021-02-17T16:01:04+08:00">2021-02-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-02-24 08:50:25" itemprop="dateModified" datetime="2021-02-24T08:50:25+08:00">2021-02-24</time>
               
             
           </span>
@@ -437,7 +452,12 @@
       
 
       
-        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDownLatchTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">4</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; latch.getCount();i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> MyThread(latch),<span class="string">"player"</span> + i).start();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"等待 所所有玩家 准备好"</span>);</span><br><span class="line">        latch.await();</span><br><span class="line">        System.out.println(<span class="string">"开始游戏"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> CountDownLatch latch;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(CountDownLatch latch)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.latch = latch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@SneakyThrows</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            Random rand = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                rand = <span class="keyword">new</span> Random();</span><br><span class="line">                <span class="keyword">int</span> randomNum = rand.nextInt((<span class="number">3000</span> - <span class="number">1000</span>)  +<span class="number">1</span> ) + <span class="number">1000</span>;</span><br><span class="line">                Thread.sleep(randomNum);</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"已经准备好 "</span> + <span class="string">"所使用的时间是："</span> + randomNum );</span><br><span class="line">                latch.countDown();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CyclicBarrierTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CyclicBarrier barrier = <span class="keyword">new</span> CyclicBarrier(<span class="number">3</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; barrier.getParties(); i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> MyRunnable(barrier), <span class="string">"队友"</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"main function is finished."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> CyclicBarrier barrier;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyRunnable</span><span class="params">(CyclicBarrier barrier)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.barrier = barrier;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Random rand = <span class="keyword">new</span> Random();</span><br><span class="line">                    <span class="keyword">int</span> randomNum = rand.nextInt((<span class="number">3000</span> - <span class="number">1000</span>) + <span class="number">1</span>) + <span class="number">1000</span>;<span class="comment">//产生1000到3000之间的随机整数</span></span><br><span class="line">                    Thread.sleep(randomNum);</span><br><span class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">", 通过了第"</span>+i+<span class="string">"个障碍物, 使用了 "</span>+((<span class="keyword">double</span>)randomNum/<span class="number">1000</span>)+<span class="string">"s"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.barrier.await();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (BrokenBarrierException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：CountDownLatch和CyclicBarrier都有让多个线程等待同步然后再开始下一步动作的意思，但是CountDownLatch的下一步的动作实施者是主线程，具有不可重复性；而CyclicBarrier的下一步动作实施者还是“其他线程”本身，具有往复多次实施动作的特点。</p>
+
       
     </div>
 
@@ -484,7 +504,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java语法基础/" rel="tag"># java语法基础</a>
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
           
         </div>
       
@@ -497,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/02/14/python-爬取图片/" rel="next" title="python 爬取图片">
-                <i class="fa fa-chevron-left"></i> python 爬取图片
+              <a href="/2021/02/16/String-StringBuilder-StringBuffer/" rel="next" title="String StringBuilder StringBuffer">
+                <i class="fa fa-chevron-left"></i> String StringBuilder StringBuffer
               </a>
             
           </div>
@@ -507,8 +527,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/02/16/正则表达式/" rel="prev" title="正则表达式">
-                正则表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/02/17/实现锁的框架/" rel="prev" title="AQS实现锁的框架">
+                AQS实现锁的框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
