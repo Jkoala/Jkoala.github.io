@@ -256,7 +256,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">7</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">8</span></a>
 
   </li>
 
@@ -321,6 +321,461 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/15/深拷贝-浅拷贝解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水浅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2021/02/15/深拷贝-浅拷贝解析/" class="post-title-link" itemprop="url">深拷贝 浅拷贝解析</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-15 10:34:51 / Modified: 22:32:25" itemprop="dateCreated datePublished" datetime="2021-02-15T10:34:51+08:00">2021-02-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java系列/" itemprop="url" rel="index"><span itemprop="name">java系列</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/python-爬取图片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水浅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2021/02/14/python-爬取图片/" class="post-title-link" itemprop="url">python 爬取图片</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-14 15:44:11 / Modified: 17:13:47" itemprop="dateCreated datePublished" datetime="2021-02-14T15:44:11+08:00">2021-02-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>思路分析：</p>
+<p>​    requests 获得需要爬取的网页</p>
+<p>​    将爬取的网页数据做成BeautifulSoup</p>
+<p>​    应用soup 的API 找到需要的标签属性</p>
+<p>  通过标签属性获得二进制字节保存</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">data = requests.get(<span class="string">"url"</span>)</span><br><span class="line">data.encoding = data.apparent_encoding</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(data.text)</span><br><span class="line">link = soup.select_one(<span class="string">"#container &gt; div &gt; div &gt; div:nth-child(3) &gt; div.list_con_box &gt; div.zt_con_img &gt; dl &gt; dd &gt; ul &gt; li:nth-child(1) &gt; a &gt; img"</span>)[<span class="string">'src'</span>]</span><br><span class="line">f = open(<span class="string">"D://a.jpg"</span>,<span class="string">"wb"</span>)</span><br><span class="line"></span><br><span class="line">pic_data = requests.get(link)</span><br><span class="line">f.write(pic_data.content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/手写数字识别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Author">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水浅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2021/02/14/手写数字识别/" class="post-title-link" itemprop="url">手写数字识别</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-14 15:32:10 / Modified: 15:43:10" itemprop="dateCreated datePublished" datetime="2021-02-14T15:32:10+08:00">2021-02-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>具体参考<br>  <a href="https://www.cnblogs.com/endlesscoding/p/9901539.html" target="_blank" rel="noopener">https://www.cnblogs.com/endlesscoding/p/9901539.html</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> fetch_mldata</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"> <span class="comment">## 样本可能下载超时</span></span><br><span class="line">mnist = fetch_mldata(<span class="string">'mnist-original'</span>, data_home = <span class="string">'./datasets/'</span>) </span><br><span class="line">mnist</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X, y = mnist[<span class="string">'data'</span>], mnist[<span class="string">'target'</span>]</span><br><span class="line">print(X.shape)</span><br><span class="line">print(y.shape)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#     第一个样本</span></span><br><span class="line">some_digit = X[<span class="number">1</span>]</span><br><span class="line">some_digit_image = some_digit.reshape(<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line"> </span><br><span class="line">plt.imshow(some_digit_image, cmap=matplotlib.cm.binary, interpolation=<span class="string">"nearest"</span>)</span><br><span class="line">plt.axis(<span class="string">'off'</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># EXTRA  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_digits</span><span class="params">(instances, images_per_row=<span class="number">10</span>, **options)</span>:</span></span><br><span class="line">    size = <span class="number">28</span></span><br><span class="line">    images_per_row = min(len(instances), images_per_row)</span><br><span class="line">    images = [instance.reshape(size,size) <span class="keyword">for</span> instance <span class="keyword">in</span> instances]</span><br><span class="line">    n_rows = (len(instances) - <span class="number">1</span>) // images_per_row + <span class="number">1</span></span><br><span class="line">    row_images = []</span><br><span class="line">    n_empty = n_rows * images_per_row - len(instances)</span><br><span class="line">    images.append(np.zeros((size, size * n_empty)))</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> range(n_rows):</span><br><span class="line">        rimages = images[row * images_per_row : (row + <span class="number">1</span>) * images_per_row]</span><br><span class="line">        row_images.append(np.concatenate(rimages, axis=<span class="number">1</span>))</span><br><span class="line">    image = np.concatenate(row_images, axis=<span class="number">0</span>)</span><br><span class="line">    plt.imshow(image, cmap = matplotlib.cm.binary, **options)</span><br><span class="line">    plt.axis(<span class="string">"off"</span>)</span><br><span class="line"> </span><br><span class="line">plt.figure(figsize=(<span class="number">9</span>,<span class="number">9</span>))</span><br><span class="line">example_images = np.r_[X[:<span class="number">12000</span>:<span class="number">600</span>], X[<span class="number">13000</span>:<span class="number">30600</span>:<span class="number">600</span>], X[<span class="number">30600</span>:<span class="number">60000</span>:<span class="number">590</span>]]</span><br><span class="line">plot_digits(example_images, images_per_row=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># save_fig("more_digits_plot")</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X_train, X_test, y_train, y_test = X[:<span class="number">60000</span>],X[<span class="number">60000</span>:],y[:<span class="number">60000</span>],y[<span class="number">60000</span>:]</span><br><span class="line"><span class="comment"># 打乱标签</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"> </span><br><span class="line">shuffle_index = np.random.permutation(<span class="number">60000</span>)</span><br><span class="line">X_train, y_train = X_train[shuffle_index],y_train[shuffle_index]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练一个二分器</span></span><br><span class="line"><span class="comment"># 这是一个逻辑数组，5：True, 非5：False</span></span><br><span class="line">y_train_5 = (y_train == <span class="number">5</span>)</span><br><span class="line">y_test_5 = (y_test == <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> SGDClassifier</span><br><span class="line"> </span><br><span class="line">sgd_clf = SGDClassifier(random_state = <span class="number">32</span>)</span><br><span class="line">sgd_clf.fit(X_train, y_train_5)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SGDClassifier(alpha=<span class="number">0.0001</span>, average=<span class="literal">False</span>, class_weight=<span class="literal">None</span>,</span><br><span class="line">       early_stopping=<span class="literal">False</span>, epsilon=<span class="number">0.1</span>, eta0=<span class="number">0.0</span>, fit_intercept=<span class="literal">True</span>,</span><br><span class="line">       l1_ratio=<span class="number">0.15</span>, learning_rate=<span class="string">'optimal'</span>, loss=<span class="string">'hinge'</span>, max_iter=<span class="literal">None</span>,</span><br><span class="line">       n_iter=<span class="literal">None</span>, n_iter_no_change=<span class="number">5</span>, n_jobs=<span class="literal">None</span>, penalty=<span class="string">'l2'</span>,</span><br><span class="line">       power_t=<span class="number">0.5</span>, random_state=<span class="number">32</span>, shuffle=<span class="literal">True</span>, tol=<span class="literal">None</span>,</span><br><span class="line">       validation_fraction=<span class="number">0.1</span>, verbose=<span class="number">0</span>, warm_start=<span class="literal">False</span>)</span><br><span class="line">sgd_clf.predict([some_digit])</span><br><span class="line">array([ <span class="literal">True</span>])</span><br><span class="line"></span><br><span class="line">sgd_clf = SGDClassifier(random_state = <span class="number">42</span>)</span><br><span class="line">sgd_clf.fit(X_train, y_train_5)</span><br><span class="line">sgd_clf.predict([some_digit])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line"><span class="keyword">from</span> sklearn.base <span class="keyword">import</span> clone</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 使用交叉验证测量准确性</span></span><br><span class="line">skfolds = StratifiedKFold(n_splits = <span class="number">3</span>, random_state = <span class="number">42</span>)</span><br><span class="line">clone_clf = clone(sgd_clf)</span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> skfolds.split(X_train, y_train_5):</span><br><span class="line">    X_train_folds = X_train[train_index]</span><br><span class="line">    y_train_folds = (y_train_5[train_index])</span><br><span class="line">    X_test_fold = X_train[test_index]</span><br><span class="line">    y_test_fold = (y_train_5[test_index])</span><br><span class="line">    clone_clf.fit(X_train_folds, y_train_folds)</span><br><span class="line">    y_pred = clone_clf.predict(X_test_fold)</span><br><span class="line">    n_correct = sum(y_pred == y_test_fold)</span><br><span class="line">    print(n_correct / len(y_pred))</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line">cross_val_score(sgd_clf, X_train, y_train_5, cv = <span class="number">3</span>, scoring = <span class="string">"accuracy"</span>)</span><br><span class="line"><span class="keyword">from</span> sklearn.base <span class="keyword">import</span> BaseEstimator</span><br><span class="line"><span class="comment"># 这个模型的预测的策略就是将所有的数据都认为是'非5'</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Never5Classifier</span><span class="params">(BaseEstimator)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self,X,y=None)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self,X)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> np.zeros((len(X),<span class="number">1</span>), dtype=bool)</span><br><span class="line"></span><br><span class="line">never_5_clf = Never5Classifier()</span><br><span class="line">cross_val_score(never_5_clf, X_train, y_train_5, cv = <span class="number">3</span>, scoring = <span class="string">"accuracy"</span>)</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_predict</span><br><span class="line"> </span><br><span class="line">y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv = <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1317,497 +1772,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/13/CAS-版本号应用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Author">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水浅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2021/02/13/CAS-版本号应用/" class="post-title-link" itemprop="url">CAS 版本号应用</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2021-02-13 19:01:48 / Modified: 19:02:29" itemprop="dateCreated datePublished" datetime="2021-02-13T19:01:48+08:00">2021-02-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  </span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@author</span> devin</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@date</span> 2021-01-08 22:11</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@version</span> 1.0.2</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUnsafe</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> AtomicStampedReference&lt;Integer&gt; atomicStampedReference = <span class="keyword">new</span> AtomicStampedReference&lt;Integer&gt;(<span class="number">100</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            System.out.println(<span class="string">"t1拿到的初始版本号:"</span> + atomicStampedReference.getStamp());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//睡眠1秒，是为了让t2线程也拿到同样的初始版本号</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            atomicStampedReference.compareAndSet(<span class="number">100</span>, <span class="number">101</span>,atomicStampedReference.getStamp(),atomicStampedReference.getStamp()+<span class="number">1</span>);</span><br><span class="line">            atomicStampedReference.compareAndSet(<span class="number">101</span>, <span class="number">100</span>,atomicStampedReference.getStamp(),atomicStampedReference.getStamp()+<span class="number">1</span>);</span><br><span class="line">        &#125;,<span class="string">"t1"</span>).start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="comment">//得到共享变量的版本号</span></span><br><span class="line">            <span class="keyword">int</span> stamp = atomicStampedReference.getStamp();</span><br><span class="line">            System.out.println(<span class="string">"t2拿到的初始版本号:"</span> + stamp);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//睡眠3秒，是为了让t1线程完成ABA操作</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">3</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"最新版本号:"</span> + atomicStampedReference.getStamp());</span><br><span class="line">            <span class="comment">//确认当前值   修改值   确认版本号   赋值新的版本号   获得修改后的值  修改成功与否</span></span><br><span class="line">            System.out.println(atomicStampedReference.compareAndSet(<span class="number">100</span>, <span class="number">2019</span>,<span class="number">3</span>,atomicStampedReference.getStamp() + <span class="number">1</span>) + <span class="string">"\t当前 值:"</span> + atomicStampedReference.getReference());</span><br><span class="line">        &#125;,<span class="string">"t2"</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/13/hexo使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Author">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水浅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2021/02/13/hexo使用/" class="post-title-link" itemprop="url">hexo使用</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2021-02-13 18:40:43" itemprop="dateCreated datePublished" datetime="2021-02-13T18:40:43+08:00">2021-02-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2021-02-15 10:37:16" itemprop="dateModified" datetime="2021-02-15T10:37:16+08:00">2021-02-15</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><p>新建一篇文章</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"博客名称"</span></span><br><span class="line"></span><br><span class="line">hexo new page --path about/me <span class="string">"About me"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署博客</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 发布博客</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li><p>启动服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多分类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分类和标签的使用规范</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">分类：优先级 以领域划分   机器学习   生活   web开发  java系列</span><br><span class="line">标签：语言   读书笔记    代码   总结</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/30/JAVA死锁代码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Author">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水浅">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/12/30/JAVA死锁代码/" class="post-title-link" itemprop="url">java 死锁代码</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-12-30 20:05:06" itemprop="dateCreated datePublished" datetime="2020-12-30T20:05:06+08:00">2020-12-30</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2021-02-24 08:49:20" itemprop="dateModified" datetime="2021-02-24T08:49:20+08:00">2021-02-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java系列/" itemprop="url" rel="index"><span itemprop="name">java系列</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> jvm;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> devin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0.2</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-01-17 14:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 资源类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HoldLockThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String lockA;</span><br><span class="line">    <span class="keyword">private</span> String lockB;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 持有自己的锁，还想得到别人的锁</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HoldLockThread</span><span class="params">(String lockA, String lockB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lockA = lockA;</span><br><span class="line">        <span class="keyword">this</span>.lockB = lockB;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (lockA) &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">"\t 自己持有"</span> + lockA + <span class="string">"\t 尝试获取："</span> + lockB);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">synchronized</span> (lockB) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"\t 自己持有"</span> + lockB + <span class="string">"\t 尝试获取："</span> + lockA);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1857,7 +1821,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1884,7 +1848,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>

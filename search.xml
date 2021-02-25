@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hashmap详解]]></title>
+    <url>%2F2021%2F02%2F25%2Fhashmap%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 loadfactor 表示hash 表的拥挤程度]]></content>
+      <categories>
+        <category>面试hahs</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[代理模式]]></title>
+    <url>%2F2021%2F02%2F25%2F%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364public interface IGamePlayer &#123; public void killBoss(); public void upGrade();&#125;public class GamePlayer implements IGamePlayer&#123; private String name; public GamePlayer() &#123; &#125; public GamePlayer(String name) &#123; this.name = name; &#125; @Override public void killBoss() &#123; System.out.println("打怪"); &#125; @Override public void upGrade() &#123; System.out.println("升级"); &#125;&#125;public class GamePlayerProxy implements IGamePlayer&#123; private IGamePlayer player = null; public GamePlayerProxy(IGamePlayer player)&#123; this.player= player; &#125; private void log()&#123; System.out.println("打怪 时间 " + new Date().toString()); &#125; @Override public void killBoss() &#123; System.out.println("打怪前"); player.killBoss(); System.out.println("打怪后"); &#125; @Override public void upGrade() &#123; &#125;&#125;public class Client &#123; public static void main(String[] args) &#123; GamePlayer gamePlayer = new GamePlayer("李逍遥"); GamePlayerProxy gamePlayerProxy = new GamePlayerProxy(gamePlayer); gamePlayerProxy.killBoss(); &#125;&#125;]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[抽象工厂模式]]></title>
+    <url>%2F2021%2F02%2F25%2F%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253public abstract class Article &#123; public abstract void produce();&#125;public abstract class Video &#123; public abstract void produce();&#125;//实现类public class JavaArticle extends Article&#123; @Override public void produce() &#123; System.out.println("生产文章"); &#125;&#125;public class JavaVideo extends Video&#123; @Override public void produce() &#123; System.out.println("生成video"); &#125;&#125;课程public interface CourseFactory &#123; Video getVideo(); Article getArtcle();&#125;public class MyFactory implements CourseFactory&#123; @Override public Video getVideo() &#123; return new JavaVideo(); &#125; @Override public Article getArtcle() &#123; return new JavaArticle(); &#125;&#125;//主类public class Client &#123; public static void main(String[] args) &#123; MyFactory myFactory = new MyFactory(); Article artcle = myFactory.getArtcle(); Video video = myFactory.getVideo(); artcle.produce(); video.produce(); &#125;&#125;]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[招银云创二面凉经]]></title>
     <url>%2F2021%2F02%2F24%2F%E6%8B%9B%E9%93%B6%E4%BA%91%E5%88%9B%E4%BA%8C%E9%9D%A2%E5%87%89%E7%BB%8F%2F</url>
     <content type="text"><![CDATA[自我介绍 巴拉巴拉 介绍提到大学开发过项目 针对项目 问的问题 问我用过那些注解 谈谈@Controller 和@Service 的区别 controller service dao 分别写什么代码 原来用ssm 现在 为什么用springboot springboot 为什么可以简化配置 Mybaties 执行器 Mybaties 用过那些标签 mybaties 可以重载？ JUC 谈谈JUC 的理解 synchronized 如何实现同步 集合框架 谈谈你对hashmap 的理解 hashmap 和hashtable 的区别 hashmap 为什么是线程安全额 hash map 的key和value 可以为空 为什么不能为空 总结面试时间是半小时 面试的是公司的架构师，问题都很开放先谈理解 根据你说的再问。]]></content>
