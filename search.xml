@@ -1,16 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2021%2F02%2F26%2F%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
-    <content type="text"><![CDATA[mysql 数据库事务四大特性 - 原子性 - 隔离性 - 一致性 - 持久性 数据库的索引 脏读：事务B查看事务A 每天提交的数据 不可重复读：一行被检索两次，并且该行，在不同的读取之时不同 其他会话修改数据 读未提交 不可重复读 可重复读（默认） 串行化 存储引擎： 都是采用表级别锁 MYISAM: （非聚集索引） 不支持外键 不提供事务 插入数据时 锁定整个表所以每次查询具有原子性 可以直接读取行数变量 INNODB: （聚集索引） 支持事务和行级别锁 聚集索引 读取行数需要执行查询语句 MYSQl 5.5 之后默认是INNODB 考虑存储引擎的几点 是否支持事务 是否读写频繁 系统崩溃后 MyISAM恢复起来更困难 数据库三大范式 属性不可分 比如姓名 姓和名 非主键属性完全依赖于主键属性： 比如学生id和姓名 非主键属性是通过课程 ID 连接起来你不能通过ID 把他们弄在一起 数据库的锁 按照颗粒度来分的话 行级别锁： 开销大，加锁慢，会出现死锁。发生锁冲突的概率最低，并发度也最高。 顾名思义就是对行进行加锁 他的颗粒粒度是最小的 还有间隙锁 和 表级别锁： 开销小，加锁快，不会出现死锁。发生锁冲突的概率最高，并发度也最低。 有两种锁 读锁锁表 写锁锁表 MYISAM 默认是加表锁的 INNODB 要加表说就需要显式的声明了 页级锁 是表锁和行锁中间隔离级别的一种锁 按共享策略来分可以分为 共享锁 读锁 排他锁 写锁 意向共享锁 意向排他锁的作用主要是快速判断一个表是否被上锁 从加锁策略来分的 话可以分为 乐观锁 默认对数据的操作是查询比较多 增删比较少 悲观锁 默认修改多查询少 不加锁一定出问题 其他还有一个自增锁 主要用于自增片段 mysql 索引 索引算法 hash 算法实现 不能进行 范围查询 不能排序 B+ 索引 聚集索引非聚集索引 聚集索引 按索引的顺序存储 节点中存储正在的物理数据 非聚集索引:存储指针 查询非指针数据时需要查询两次、 为什么使用索引 索引最大的好处是提高查询速度，缺点是更新数据时效率低，因为要同时更新索引对数据进行频繁查询进建立索引，如果要频繁更改数据不建议使用索引。 为什么用B+ 树 他和B树的区别 B 所有节点都存储key和data 所有节点组成这颗树 叶子节点为空 B+ 只有叶子节点存储data 叶子节点包含了这棵树所有的键值 叶子节点不存储指针 数据库的主从复制 为什么需要主从复制 主从复制就是做一个备份的数据库，主数据库崩塌后可以立马切换到从数据库，避免数据丢失 主从复制的原理 sql 优化1234子查询变成left joinwhere代替having,having 检索完所有记录，才进行过滤避免嵌套查询对多个字段进行等值查询时，联合索引]]></content>
+    <title><![CDATA[综合问题]]></title>
+    <url>%2F2021%2F03%2F01%2F%E5%85%B6%E4%BB%96%2F</url>
+    <content type="text"><![CDATA[部门架构是怎么样 我如果被录用具体在公司做什么呢]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[JVM]]></title>
+    <url>%2F2021%2F02%2F28%2FJVM%2F</url>
+    <content type="text"><![CDATA[JVM 内存模型 线程共享 堆和方法区 线程私有 虚拟机栈 本地方法栈 程序计数器 方法区： 原来是通过永久代来实现，现在通过元空间实现，永久代是堆的一部分，元空间属于本地内存。元空间主要存储元信息，静态变量和常量池并入堆中。 静态变量 静态代码块 静态方法 构造代码块 堆 对象的非静态成员变量 栈内存 存储局部变量 类加载机制​ 七个阶段： 加载 验证 准备 解析 初始化 使用 卸载 加载 - 通过一个类的权限域名获取他的二进制字节流 - 将二进制字节流代表的静态存储结构转化为方法区运行的数据结构 - 将java 堆生成代表这个类的class 对象作为读取方法区数据的访问入口 - Xmx 最大堆内存 Xms 初始堆内存四大引用强引用我们平常new 这个对象 软引用：内存空间够就不会回收大 弱引用，不管空间是否够都能引用他。 虚引用主要用来跟踪垃圾回收的过程。 什么可以作为GCRPOOT 的引用对象java 虚拟机栈中的引用对象 方法区中类静态属性引用对象 方法区产常量引用对象 本地方法栈中的引用对象 GC 回收的过程 1、发生Young GC之前进行检查，如果“老年代可用的连续内存空间” &lt; “新生代历次Young GC后升入老年代的对象总和的平均大小”，说明本次Young GC后可能升入老年代的对象大小，可能超过了老年代当前可用内存空间，此时会触发FullGC 2、当老年代没有足够空间存放对象时，会触发一次FullGC 3、如果元空间区域的内存达到了所设定的阈值-XX:MetaspaceSize=，也会触发FullGC。 String Stringbuffer 是线程安全的 StringBuilder线程不安全]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[JUC]]></title>
+    <url>%2F2021%2F02%2F28%2Fjuc%2F</url>
+    <content type="text"><![CDATA[synchronized synchronized 的修饰对象 静态方法 获得本类对象 方法 本实例对象 代码块： 可以指定锁对象 原理 当程序执行到synchronized 修饰段的时候，线程会尝试获取它的监视器对象 如果监视器进入数为0 则该线程获得监视器，然后设置进入树为1 可重入 如果monitor 对象已经被其他线程获取，则该线程进入阻塞状态，直到monitor 进入数为0 wait notify wait 和 notify 就是一个暂停运行 一个通知运行，当时必须获得锁以后才可以执行该对象，而且获得的锁必须是相同的锁机制。 锁的原理也是获得监控器的对象， wait 立刻释放锁 notify 一次只唤醒一个线程且唤醒的顺序和执行wait方法的顺序一致 volatile 关键字 保证可见性 不保证原子性 禁止指令重排 守护进程和用户进程用户进程就是用户创建的进程 不需要上乘逻辑介入 主线程结束 自动结束 普通线程是一直run 完 可能 阻塞队列 普通阻塞队列 数组阻塞队列 一旦指定了队列的长度，则队列的大小不能改变 先进先出 数组实现 列表阻塞队列 先进先出 可以设置有限也可以设置无限 优先阻塞队列 插入的对象必须可以比较的 异步阻塞队列 put 必须等待take take也必须等待put lock 和 synchronized 的区别 lock 是一个类 发送异常不会释放锁 synchoronized 不会释放锁 线程池 线程池的配置 CPU 密集性 +1 IO密集型 CPU/(1-阻塞系数) 线程池的参数 核心线程数 最大线程数 存活时间 存活时间单位 任务队列 线程工厂 拒绝策略 拒绝策略比如不管什么情况直接抛出异常 或者任何处理继续运行 线程池的创建 1.newCachedThreadPool创建一个可缓存线程池程 2.newFixedThreadPool 创建一个定长线程池 3.newScheduledThreadPool 创建一个定长线程池 4.newSingleThreadExecutor 创建一个单线程化的线程池 锁机制公平锁就是按申请顺序执行 非公平锁就是部分优先级高的可以加塞 可重入锁就是进入锁内部仍然可以获得该锁 不停地空耗CPU 中心锁默认是非公平的 乐观锁默认操作不会修改数据 使用CAS 悲观锁默认会修改数据 使用Synchronized 在对记录进行修改前，先尝试为该记录加上排他锁(exclusive locks)。 如果加锁失败，说明该记录正在被修改，那么当前查询可能要等待或者抛出异常。具体响应方式由开发者根据实际需要决定。 如果成功加锁，那么就可以对记录做修改，事务完成后就会解锁了。 期间如果有其他对该记录做修改或加排他锁的操作，都会等待解锁或直接抛出异常。 死锁死锁预防是添加某种限制条件 比如设定某线程必须在另一个线程全部执行完之后才能执行 sleep yeild①sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会； ② 线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；③ sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；④ sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。 AQS 抽象对垒同步器]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[spring]]></title>
+    <url>%2F2021%2F02%2F28%2Fspring%2F</url>
+    <content type="text"><![CDATA[切面编程，AOP 的实现关键在于代理 代理分为静态代理和动态代理。 静态代理时AspectJ 动态代理有CGlib 和 jdk JDK动态代理只提供接口的代理，不支持类的代理 CGlib是一个代码生成类库 通过继承方式实复写特定方法实现代理。 常用注解1. 注册bean 对象 @Component kəmˈpoʊnənt @Controller @Service @Repository @bean 2. 自动装配 @Autowired waɪərd Qualifier kwɑːlɪfaɪər @Resource @Value 3. bean 的范围 @Scope 4. 生命周期相关 @PostConstruct @PreDestroy 前端控制器前端控制器 去找处理映射器 得到一个执行链 前端控制器再去调用处理适配器 找到对应的controller 返回modelandview 在去调用视图解析器 返回view 主要是填充页面的参数 渲染完成后返回给view 试图 bean 的作用范围单例 prototype request session global-session ###]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[集合框架]]></title>
+    <url>%2F2021%2F02%2F28%2Fjava%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[Hashmap 的特性 hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 treemap 一般按照key 排序 String StringBuffer StringBuilder Stringbuffer 是线程安全的 StringBuilder线程不安全]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[mybaties]]></title>
+    <url>%2F2021%2F02%2F28%2Fmybaties%2F</url>
+    <content type="text"><![CDATA[myabties 执行器SIMPLE 方式从执行日志可以看出, 每次插入操作, 都会执行编译, 设置参数, 执行sql操作. REUSE 方式从执行日志可以看出, 只有第一次插入操作, 执行了sql编译步骤, 对其它插入操作执行了设置参数, 执行sql的操作. 批量从执行日志可以看出, 只对第一次插入操作执行了sql编译操作, 对其它插入操作仅执行了设置参数操作, 最后统一执行. 常见问题答：不同的Xml映射文件，如果配置了namespace，那么id可以重复；如果没有配置namespace，那么id不能重复；毕竟namespace不是必须的，只是最佳实践而已。]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[计算机网络]]></title>
+    <url>%2F2021%2F02%2F28%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%2F</url>
+    <content type="text"><![CDATA[http 报文的结构 ：请求行、请求头部、空行和请求数据4个部分组成 端口 80 明文传输 HTTP1.0 和 1.1 的区别 持久链接 还提供身份认证 HTTP响应也由三个部分组成，分别是：状态行、消息报头、响应正文。 TCP 如何保证有效连接（运输层） 确认和重传 数据效验 流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。 拥塞控制：当网络拥塞时，减少数据的发送。 滑动窗口 三个窗口 ： 发送窗口 接受窗口 拥塞窗口 输入URL 后面发生的事情 查找 地址浏览器的缓存记录 如果就需要找域名服务器 迭代查询 递归查询过 找到Ip 建立链接 http发起请求 服务器响应 渲染页面 构建dom 树 Ip和mac 地址 Ip 地址确定 主机的拓扑位置 物理地址区分不同主机的编号 mac是一个身份标识 IP 是动态变化的 类比家庭住址和身份证 慢开始 拥塞避免 快重传 连接建立好后，初始拥塞窗口的大小为1 表明可以传一个MSS 大小的数据 在到达门限阈值之后每收到一个ACK窗口值就翻倍 到了门限阈值后收到ACK就一步一步增加1， 收到三个重复ACK 就将门限阈值提到变为当前的一半，再执行加法增大 TCP UDP 传输层 TCP是可靠的 ​ TCP 通过拥塞控制 确认机制来保证可靠性 UDP 不保证可靠性 HTTP HTTPS HTTPS 其实就是加密的HTTP]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[数据库]]></title>
+    <url>%2F2021%2F02%2F28%2F%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[mysql 数据库事务四大特性 原子性 隔离性 一致性 持久性 数据库的索引 脏读：事务B查看事务A 每天提交的数据 不可重复读：一行被检索两次，并且该行，在不同的读取之时不同 其他会话修改数据 读未提交 不可重复读 可重复读（默认） 串行化 存储引擎： 都是采用表级别锁 MYISAM: （非聚集索引） 不支持外键 不提供事务 插入数据时 锁定整个表所以每次查询具有原子性 可以直接读取行数变量 INNODB: （聚集索引） 支持事务和行级别锁 聚集索引 读取行数需要执行查询语句 MYSQl 5.5 之后默认是INNODB 考虑存储引擎的几点 是否支持事务 是否读写频繁 系统崩溃后 MyISAM恢复起来更困难 数据库三大范式 属性不可分 比如姓名 姓和名 非主键属性完全依赖于主键属性： 比如学生id和姓名 非主键属性是通过课程 ID 连接起来你不能通过ID 把他们弄在一起 数据库的锁 按照颗粒度来分的话 行级别锁： 开销大，加锁慢，会出现死锁。发生锁冲突的概率最低，并发度也最高。 顾名思义就是对行进行加锁 他的颗粒粒度是最小的 还有间隙锁 和 表级别锁： 开销小，加锁快，不会出现死锁。发生锁冲突的概率最高，并发度也最低。 有两种锁 读锁锁表 写锁锁表 MYISAM 默认是加表锁的 INNODB 要加表说就需要显式的声明了 页级锁 是表锁和行锁中间隔离级别的一种锁 按共享策略来分可以分为 共享锁 读锁 排他锁 写锁 意向共享锁 意向排他锁的作用主要是快速判断一个表是否被上锁 从加锁策略来分的 话可以分为 乐观锁 默认对数据的操作是查询比较多 增删比较少 悲观锁 默认修改多查询少 不加锁一定出问题 其他还有一个自增锁 主要用于自增片段 mysql 索引 索引算法 hash 算法实现 不能进行 范围查询 不能排序 B+ 索引 聚集索引非聚集索引 聚集索引 按索引的顺序存储 节点中存储正在的物理数据 非聚集索引:存储指针 查询非指针数据时需要查询两次、 为什么使用索引 索引最大的好处是提高查询速度，缺点是更新数据时效率低，因为要同时更新索引对数据进行频繁查询进建立索引，如果要频繁更改数据不建议使用索引。 为什么用B+ 树 他和B树的区别 B 所有节点都存储key和data 所有节点组成这颗树 叶子节点为空 B+ 只有叶子节点存储data 叶子节点包含了这棵树所有的键值 叶子节点不存储指针 数据库的主从复制 为什么需要主从复制 主从复制就是做一个备份的数据库，主数据库崩塌后可以立马切换到从数据库，避免数据丢失 主从复制的原理 sql 优化1234子查询变成left joinwhere代替having,having 检索完所有记录，才进行过滤避免嵌套查询对多个字段进行等值查询时，联合索引 123// 通过ID 来过滤select * from table limit 100000,20select * from table where id &gt; (select id from table limit 100000,1) limit 100000,20 索引失效的场景- 未使用该列作为查询条件 - 使用like通配符在前面 - 查询使用ORredis 缓存雪崩 缓存雪崩是指在我们设置缓存时采用了相同的过期时间，导致缓存在某一时刻同时失效，请求全部转发到DB，DB瞬时压力过重雪崩。 解决方案：将缓存失效的时间分隔开 缓存击穿 缓存失效的时候大量请求发送过来 解决方案：用互斥锁 先判断是否失效 ​ 失效就先重新设置缓存 在查询 缓存穿透 访问一个不存在的数据 解决方案：先做一个预判断]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[操作系统]]></title>
+    <url>%2F2021%2F02%2F27%2F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[进程和线程​ 进程的各个状态 就绪等待被调度 运行 正在执行中 阻塞；缺少需要的资源 等待中 只有就绪态和运行态可以相互转换，其它的都是单向转换。就绪状态的进程通过调度算法从而获得 线程的各个状态之间的切换 就绪 ：进程处于准备好的状态 得到CPU 就可以运行 执行：进程获得cpu 执行 阻塞：正在执行的进程由于发生某事件 暂时无法继续执行 进程和线程 进程： 进程是系统进行资源分配和调度的一个独立单位 线程：是CPU分配和调度的基本单位 进程和线程的关系 一个进程可以拥有多个线程 进程和线程的区别 进程有自己的独立地址空间 线程没有 进程是资源分配的最小单位线程是CPU分配的最小单位 线程通信更方便： 比如同一进程下线程共享数据（全局变量 静态变量） 进程切换代价高 进程切换 需要切换目录地址空间 切换内核栈 硬件上下文 进程调度 非抢占式调度 抢占式调度 调度算法 先进先出，最短作业优先 优先权调度算法 轮转调度算法 多级队列调度 一个程序从开始到结束的过程 预处理 ：头文件包含 宏替换 编译：将预处理的文件转换成汇编语言 汇编：将汇编代码转成二进制文件 链接：链接目标生成可执行文件 程序和进程​ 程序是永久的，进程是暂时的，程序是在数据集上的一次执行 ​ 程序是静态的观念，进程是动态的观念 ​ 进程具有并发性，而程序没有 ​ 进程和程序不是一一对应的，一个程序可以拥有多个进程。 ​ 程序有一定的生命周期 了解哪些寄存器通用寄存器 标志寄存器 段寄存器 进程通信的方式1. 管道通信 ： 命名管道：在内核申请一块固定大小的缓冲区 。程序拥有读写的权利 匿名管道： 2. 消息队列： 在内核中创建一个队列，队列存储的元素是一个个数据报，不同进程通过句柄去访问这个队列 3. 信号量： 主要是PV操作 4. 共享内存： 主要是将一块物理地址映射到不同的进程虚拟地址空间中，实现不同进程堆同一志愿的共享 5. 套接字( socket ) ： 套解字也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同机器间的进程通信。 比如QQ 聊天 死锁的四个条件​ 互斥 不可剥夺 循环等待 请求和保持 ​ 当系统出于安全状态时一定不会进入死锁 ​ 当系统处于不安全状态时不一定会死锁 进程调度算法：​ 先来先服务 ​ 短作业优先 ​ 时间片轮转调度 高响应比优先 优先权调度算法 多级队列调度算法 内存管理的方式：段页式存储 ​ ① 随机算法：用软件或硬件随机数产生器确定替换的页面 ② 先进先出：先调入主存的页面先替换 ③ 近期最少使用算法（LRU，Least Recently Used）：替换最长时间不用的页面 ④ 最优算法：替换最长时间以后才使用的页面。这是理想化的算法，只能作为衡量其他各种算法优劣的标准。 IO 控制的方式：​ 有轮询 中断 DMA 外中断和异常有什么区别？外中断是指由 CPU 执行指令以外的事件引起，如 I/O 完成中断，表示设备输入/输出处理已经完成，处理器能够发送下一个输入/输出请求。此外还有时钟中断、控制台中断等。 而异常时由 CPU 执行指令的内部事件引起，如非法操作码、地址越界、算术溢出等。 磁盘调度算法​ 先来先服务 ​ 最短寻道优先 ​ 电梯算法 动态分区分配算法有哪几种？可以分别说说吗？1、首次适应算法算法思想：每次都从低地址开始查找，找到第–个能满足大小的空闲分区。 如何实现：空闲分区以地址递增的次序排列。每次分配内存时顺序查找空闲分区链( 或空闲分[表)，找到大小能满足要求的第-一个空闲分区。 2、最佳适应算法算法思想:由于动态分区分配是一种连续分配方式，为各进程分配的空间必须是连续的一整片区域。因此为了保证当“大进程”到来时能有连续的大片空间，可以尽可能多地留下大片的空闲区,即，优先使用更小的空闲区。 如何实现:空闲分区按容量递增次序链接。每次分配内存时顺序查找空闲分区链(或空闲分区表)，找到大小能满足要求的第-一个空闲分区。 3、最坏适应算法又称最大适应算法(Largest Fit) 算法思想:为了解决最佳适应算法的问题—即留下太多难以利用的小碎片，可以在每次分配时优先使用最大的连续空闲区，这样分配后剩余的空闲区就不会太小，更方便使用。 如何实现:空闲分区按容量递减次序链接。每次分配内存时顺序查找空闲分区链(或空闲分区表)，找到大小能满足要求的第-一个空闲分区。 4、邻近适应算法算法思想：首次适应算法每次都从链头开始查找的。这可能会导致低地址部分出现很多小的空闲分区，而每次分配查找时，都要经过这些分区，因此也增加了查找的开销。如果每次都从上次查找结束的位置开始检索，就能解决上述问题。 如何实现：空闲分区以地址递增的顺序排列(可排成-一个循环链表)。每次分配内存时从上次查找结束的位置开始查找空闲分区链(或空闲分区表)，找到大小能满足要求的第一个空闲分区。 ​ 程序的编译过程 预编译 主要处理源代码文件中的以“#”开头的预编译指令。处理规则见下 1231. 处理所有的预处理命令2. 处理 define 命令 将内容替换到对应的位置3. 删除注释 添加行号和文件标识 （）便于调试信息时能够显示行号 编译 进行语法语义分析生成 汇编代码 .i 文件 汇编： 将汇编代码转化成机器码 链接：将不同目标文件链接转化成一个可执行文件 操作系统在对内存进行管理的时候需要做些什么? 操作系统负责内存空间的分配与回收。 操作系统需要提供某种技术从逻辑上对内存空间进行扩充。 操作系统需要提供地址转换功能，负责程序的逻辑地址与物理地址的转换。 操作系统需要提供内存保护功能。保证各进程在各自存储空间内运行，互不干扰 五大IO 模型 阻塞Io 非阻塞IO 不断询问 询问中间 可以做其他的事情 信号驱动： 用户事先在内核注册一个信号处理函数，管道和内核进行交互，当管道中的某个请求需要的数据处理好之后，进程再把对应的数据拷贝到用户空间中。 IO 复用模型 NIO Channel , Selector，Buffer 多个进程的IO 可以注册到同一个管道上，这个管道会统一和内核进行交互，当管道中数据准备好之后，进程再把对应的数据拷贝到用户空间。 异步IO 应用进程 把IO请求传递给内核后，完全由内核去操作文件拷贝，内核完成相关操作后，会发信号告诉本次应用进程本次IO 已经完成。 ​ ​]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[docker 常用命令]]></title>
+    <url>%2F2021%2F02%2F27%2Fdocker-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819• 容器有三种状态 暂停 运行 停止• docker exec -it eb14fc75272f bash• docker exec -i re bash -c &quot;ls als&quot;• -t 表示进入容器内执行命令• docker rm e00b8e3e3e2e 移除镜像• docker run --name helloworld hello-world• 移除镜像 docker rmi hello-world• 已打包的镜像 交父镜像 父镜像移除子镜像必须先移除父镜像• docker 打包项目镜像• 导入JDK 环境• 新疆Dockerfile 文件 • From ubuntu:20.04• COPY jdk1.8.0_271 /test• COPY helloworld.jar /test• docker build -t demo:1.0 .• docker cp 拷贝镜像到宿主机 反过来可以• docker cp helloworld.jar demo:/test• h]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[hashmap详解]]></title>
     <url>%2F2021%2F02%2F25%2Fhashmap%E8%AF%A6%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 loadfactor 表示hash 表的拥挤程度]]></content>
+    <content type="text"><![CDATA[hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 loadfactor 表示hash 表的拥挤程度 ​]]></content>
       <categories>
-        <category>面试hahs</category>
+        <category>面试</category>
       </categories>
   </entry>
   <entry>
@@ -190,6 +265,14 @@
       <tags>
         <tag>规范</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java基础]]></title>
+    <url>%2F2021%2F01%2F28%2Fjava%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[异常 接口和抽象类 接口 接口的变量是默认是public static final 一个类可以实现多个接口 一个类实现接口必须实现接口的所有方法 可以多继承 抽象类 抽象可以有自己的变量 抽象类可以有自己的方法 可以包含静态方法 单继承 抽象的方法不需要全部实现 也就是适配器模式 异常 分为运行异常和检查异常 空指针异常 数组越界异常 IO异常 sql 异常 反射解释：通过类名获得类的方法和属性，它的产生是满足动态编译。 反射有三种方式 forName l类的class 对象的getClass 序列化(1)Java序列化就是指把Java对象转换为字节序列的过程 ​ Java反序列化就是指把字节序列恢复为Java对象的过程。 final finally finalizefinal 用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。 finally是异常处理语句结构的一部分，表示总是执行。 finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源 请解释hashCode()和equals()方法有什么联系？相等的对象必须有相等的hashcode 有相同的hashcode 不一定相等 hash算法会有冲突 泛型擦除123456public class Foo &#123; public void listMethod(List&lt;String&gt; stringList)&#123; &#125; public void listMethod(List&lt;Integer&gt; intList) &#123; &#125;&#125; 报方法签名重复错误 List、List 擦除后的类型为 List。 List、List[] 擦除后的类型为 List[]。 List&lt;? extends E&gt;、List&lt;? super E&gt; 擦除后的类型为 List。 List&lt;T extends Serialzable &amp; Cloneable&gt; 擦除后类型为 List。 Java 为什么这么处理呢？有以下两个原因： 避免 JVM 的大换血。如果 JVM 将泛型类型延续到运行期，那么到运行期时 JVM 就需要进行大量的重构工作了，提高了运行期的效率。版本兼容。 在编译期擦除可以更好地支持原生类型（Raw Type）。 明白了 Java 泛型是类型擦除的，下面的问题就很好理解了： 无法声明泛型数组1234567// 这种报错List&lt;String&gt;[] list = new List&lt;String&gt;[];List&lt;List&lt;Integer&gt;&gt; list = new ArrayList&lt;&gt;(); List&lt;Integer&gt; list1 = new ArrayList&lt;&gt;(); list1.add(2); list.add(list1); 泛型的理解​ 要理解泛型首先要立即泛型擦除，java字节码不包含泛型类型信息，使用泛型的时候会变编译器擦除，这个过程就叫泛型擦除。泛型的附加类型JVM是不可见的。它和C++的模板类型是有区别的 泛型是没有.class 对象 声明不同的泛型实例 泛型类只会被加载一次 1234ArrayList&lt;String&gt; list1 = new ArrayList&lt;&gt;();ArrayList&lt;Integer&gt; list2 = new ArrayList&lt;&gt;(); //jvm 只会加载一次ArrayList 泛型的参数类型不能用在java 处理异常中 ###]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[java 死锁代码]]></title>
