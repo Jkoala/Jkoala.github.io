@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="hashmap特性 hashmap 可以实现快速存取  key 允许为null   非同步  线程不安全 底层时hash表  hashmap 的底层实现原理 底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。    put 方法的流程  计算">
+  <meta name="description" content="hashmap特性 hashmap 可以实现快速存取  key 允许为null   非同步  线程不安全 底层时hash表 负载因子是0.75  hashmap 的底层实现原理 底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。    put">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hashmap详解">
 <meta property="og:url" content="http://yoursite.com/2021/02/25/hashmap详解/index.html">
 <meta property="og:site_name" content="水浅">
-<meta property="og:description" content="hashmap特性 hashmap 可以实现快速存取  key 允许为null   非同步  线程不安全 底层时hash表  hashmap 的底层实现原理 底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。    put 方法的流程  计算">
+<meta property="og:description" content="hashmap特性 hashmap 可以实现快速存取  key 允许为null   非同步  线程不安全 底层时hash表 负载因子是0.75  hashmap 的底层实现原理 底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。    put">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-02-26T15:04:21.076Z">
+<meta property="og:updated_time" content="2021-03-15T07:27:58.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hashmap详解">
-<meta name="twitter:description" content="hashmap特性 hashmap 可以实现快速存取  key 允许为null   非同步  线程不安全 底层时hash表  hashmap 的底层实现原理 底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。    put 方法的流程  计算">
+<meta name="twitter:description" content="hashmap特性 hashmap 可以实现快速存取  key 允许为null   非同步  线程不安全 底层时hash表 负载因子是0.75  hashmap 的底层实现原理 底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。    put">
 
 
 
@@ -259,7 +259,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
 
   </li>
 
@@ -400,7 +400,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2021-02-26 23:04:21" itemprop="dateModified" datetime="2021-02-26T23:04:21+08:00">2021-02-26</time>
+                <time title="Modified: 2021-03-15 15:27:58" itemprop="dateModified" datetime="2021-03-15T15:27:58+08:00">2021-03-15</time>
               
             
           </span>
@@ -456,6 +456,7 @@
 <p>hashmap 可以实现快速存取  key 允许为null  </p>
 <p>非同步  线程不安全</p>
 <p>底层时hash表</p>
+<p>负载因子是0.75</p>
 </li>
 <li><p>hashmap 的底层实现原理</p>
 <p>底层时数组加链表  put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。</p>
@@ -468,7 +469,7 @@
 <li>判断hash表是否为空</li>
 <li>发生碰撞放到散列表里去</li>
 <li>hashcode 值相同 三种情况<ol>
-<li>equals 判断是否有相同</li>
+<li>equals 判断是否有相同 相同就替换</li>
 <li>红黑树就调用红黑树的插入方法</li>
 <li>链表就在尾部插入  如果插入链表个数为8  就转变为红黑树</li>
 </ol>
@@ -653,7 +654,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -686,7 +687,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>

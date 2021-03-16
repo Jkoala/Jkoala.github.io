@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Cglib代理]]></title>
+    <url>%2F2021%2F03%2F16%2FCglib%E4%BB%A3%E7%90%86%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435//被代理类public class PersonService &#123; public void eat()&#123; System.out.println("吃饭"); &#125;&#125;//代理类public class Cglib implements MethodInterceptor&#123; private Enhancer enhancer = new Enhancer(); public Object getProxy(Class clazz)&#123; enhancer.setSuperclass(clazz); enhancer.setCallback(this); return enhancer.create(); &#125; @Override public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123; System.out.println("拿筷子" + method); Object invoke = methodProxy.invokeSuper(o, objects); System.out.println("洗碗" + method); return invoke; &#125;&#125;//mainpublic class Main &#123; public static void main(String[] args) &#123; Cglib ct = new Cglib(); PersonService proxy = (PersonService) ct.getProxy(PersonService.class); proxy.eat(); &#125;&#125;]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[JDK 动态代理]]></title>
+    <url>%2F2021%2F03%2F16%2FJDK-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243//接口public interface Subject &#123; void doSomeThink();&#125;//实现类public class RealSubject implements Subject&#123; @Override public void doSomeThink() &#123; System.out.println("Do some thing"); &#125;&#125;//代理实现类/** * @author devin * @version 1.0.2 * @date 2021-03-16 15:49 */public class JDKProxy implements InvocationHandler &#123; private Object target; public JDKProxy(Object target) &#123; this.target = target; &#125; public &lt;T&gt; T getProxy()&#123; return (T) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),this); &#125; @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123; System.out.println("do some thing before"); Object result = method.invoke(target,args); System.out.println("do some thing after"); return result; &#125;&#125;// main 类public class Main &#123; public static void main(String[] args) &#123; Subject subject = new JDKProxy(new RealSubject()).getProxy(); subject.doSomeThink(); &#125;&#125; 如何实现流程 为接口创建代理类的字节码文件 将字节码文件加载到JVM 创建代理类实例对象，执行目标的方法 proxy实现了哪些工作 代理类继承了Proxy类并且实现了要代理的接口，由于java不支持多继承，所以JDK动态代理不能代理类 重写了equals、hashCode、toString 有一个静态代码块，通过反射或者代理类的所有方法 通过invoke执行代理类中的目标方法doSomething ​]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[java编程思想]]></title>
     <url>%2F2021%2F03%2F15%2Fjava%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%2F</url>
-    <content type="text"><![CDATA[第二章2.1 用引用来创建一个对象123//一切都是对象可以把引用作为一个遥控,例如 string a; //只是定义了遥控没有定义遥控的对象string a = "123" 才是OK 的 2.2 所有对象必须由你创建12345678string s = new String("1234");/*1. 寄存器访问最快的 位于CPU内部 但是数量有限 它是按需分配的 你不能感觉到它的存在2. 堆栈：位于通用RAM 仅次于寄存器 向下则分配内存 向上则释放内存 java系统需要知道堆栈中所有项的生命 周期3. 堆; 位于RAM 存储所有的java 对象 编译器不需要知道数据再堆中存活多长时间4. 常量存储： 可以存储再程序代码内部也可以存储再只读存储器中5. 非ram 存储： 两个基本的例子就是持久化和流对象*/ 基本数据类型 BigInteger BigDecimal]]></content>
+    <content type="text"><![CDATA[第二章2.1 用引用来创建一个对象123//一切都是对象可以把引用作为一个遥控,例如 string a; //只是定义了遥控没有定义遥控的对象string a = "123" 才是OK 的 2.2 所有对象必须由你创建12345678string s = new String("1234");/*1. 寄存器访问最快的 位于CPU内部 但是数量有限 它是按需分配的 你不能感觉到它的存在2. 堆栈：位于通用RAM 仅次于寄存器 向下则分配内存 向上则释放内存 java系统需要知道堆栈中所有项的生命 周期3. 堆; 位于RAM 存储所有的java 对象 编译器不需要知道数据再堆中存活多长时间4. 常量存储： 可以存储再程序代码内部也可以存储再只读存储器中5. 非ram 存储： 两个基本的例子就是持久化和流对象*/ 基本数据类型 BigInteger BigDecimal 第五章1垃圾回收器准备垃圾回收之前先调用finalized 方法 并在下一次垃圾回收回收占用的内存 第八章1构造方法其实是静态方法 不过这种静态是隐性的]]></content>
       <categories>
         <category>读书笔记</category>
       </categories>
@@ -47,14 +63,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[计算机网络]]></title>
-    <url>%2F2021%2F02%2F28%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%2F</url>
-    <content type="text"><![CDATA[http 报文的结构 ：请求行、请求头部、空行和请求数据4个部分组成 端口 80 明文传输 HTTP1.0 和 1.1 的区别 持久链接 还提供身份认证 HTTP响应也由三个部分组成，分别是：状态行、消息报头、响应正文。 TCP 如何保证有效连接（运输层） 确认和重传 数据效验 流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。 拥塞控制：当网络拥塞时，减少数据的发送。 滑动窗口 三个窗口 ： 发送窗口 接受窗口 拥塞窗口 输入URL 后面发生的事情 查找 地址浏览器的缓存记录 如果就需要找域名服务器 迭代查询 递归查询过 找到Ip 建立链接 http发起请求 服务器响应 渲染页面 构建dom 树 Ip和mac 地址 Ip 地址确定 主机的拓扑位置 物理地址区分不同主机的编号 mac是一个身份标识 IP 是动态变化的 类比家庭住址和身份证 慢开始 拥塞避免 快重传 连接建立好后，初始拥塞窗口的大小为1 表明可以传一个MSS 大小的数据 在到达门限阈值之后每收到一个ACK窗口值就翻倍 到了门限阈值后收到ACK就一步一步增加1， 收到三个重复ACK 就将门限阈值提到变为当前的一半，再执行加法增大 TCP UDP 传输层 TCP是可靠的 ​ TCP 通过拥塞控制 确认机制来保证可靠性 UDP 不保证可靠性 HTTP HTTPS HTTPS 其实就是加密的HTTP]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[JUC]]></title>
     <url>%2F2021%2F02%2F28%2Fjuc%2F</url>
     <content type="text"><![CDATA[synchronized synchronized 的修饰对象 静态方法 获得本类对象 方法 本实例对象 代码块： 可以指定锁对象 原理 当程序执行到synchronized 修饰段的时候，线程会尝试获取它的监视器对象 如果监视器进入数为0 则该线程获得监视器，然后设置进入树为1 可重入 如果monitor 对象已经被其他线程获取，则该线程进入阻塞状态，直到monitor 进入数为0 wait notify wait 和 notify 就是一个暂停运行 一个通知运行，当时必须获得锁以后才可以执行该对象，而且获得的锁必须是相同的锁机制。 锁的原理也是获得监控器的对象， wait 立刻释放锁 notify 一次只唤醒一个线程且唤醒的顺序和执行wait方法的顺序一致 volatile 关键字 保证可见性 不保证原子性 禁止指令重排 守护进程和用户进程用户进程就是用户创建的进程 不需要上乘逻辑介入 主线程结束 自动结束 普通线程是一直run 完 可能 阻塞队列 普通阻塞队列 数组阻塞队列 一旦指定了队列的长度，则队列的大小不能改变 先进先出 数组实现 列表阻塞队列 先进先出 可以设置有限也可以设置无限 优先阻塞队列 插入的对象必须可以比较的 异步阻塞队列 put 必须等待take take也必须等待put lock 和 synchronized 的区别 lock 是一个类 发送异常不会释放锁 synchoronized 不会释放锁 线程池 线程池的配置 CPU 密集性 +1 IO密集型 CPU/(1-阻塞系数) 线程池的参数 核心线程数 最大线程数 存活时间 存活时间单位 任务队列 线程工厂 拒绝策略 拒绝策略比如不管什么情况直接抛出异常 或者任何处理继续运行 线程池的创建 1.newCachedThreadPool创建一个可缓存线程池程 2.newFixedThreadPool 创建一个定长线程池 3.newScheduledThreadPool 创建一个定长线程池 4.newSingleThreadExecutor 创建一个单线程化的线程池 锁机制公平锁就是按申请顺序执行 非公平锁就是部分优先级高的可以加塞 可重入锁就是进入锁内部仍然可以获得该锁 不停地空耗CPU 中心锁默认是非公平的 乐观锁默认操作不会修改数据 使用CAS 悲观锁默认会修改数据 使用Synchronized 在对记录进行修改前，先尝试为该记录加上排他锁(exclusive locks)。 如果加锁失败，说明该记录正在被修改，那么当前查询可能要等待或者抛出异常。具体响应方式由开发者根据实际需要决定。 如果成功加锁，那么就可以对记录做修改，事务完成后就会解锁了。 期间如果有其他对该记录做修改或加排他锁的操作，都会等待解锁或直接抛出异常。 死锁死锁预防是添加某种限制条件 比如设定某线程必须在另一个线程全部执行完之后才能执行 sleep yeild①sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会； ② 线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；③ sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；④ sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。 AQS 抽象对垒同步器]]></content>
@@ -66,6 +74,14 @@
     <title><![CDATA[spring]]></title>
     <url>%2F2021%2F02%2F28%2Fspring%2F</url>
     <content type="text"><![CDATA[切面编程，AOP 的实现关键在于代理 代理分为静态代理和动态代理。 静态代理时AspectJ 动态代理有CGlib 和 jdk JDK动态代理只提供接口的代理，不支持类的代理 CGlib是一个代码生成类库 通过继承方式实复写特定方法实现代理。 常用注解1. 注册bean 对象 @Component kəmˈpoʊnənt @Controller @Service @Repository @bean 2. 自动装配 @Autowired waɪərd Qualifier kwɑːlɪfaɪər @Resource @Value 3. bean 的范围 @Scope 4. 生命周期相关 @PostConstruct @PreDestroy 前端控制器前端控制器 去找处理映射器 得到一个执行链 前端控制器再去调用处理适配器 找到对应的controller 返回modelandview 在去调用视图解析器 返回view 主要是填充页面的参数 渲染完成后返回给view 试图 bean 的作用范围单例 prototype request session global-session ###]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[计算机网络]]></title>
+    <url>%2F2021%2F02%2F28%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%2F</url>
+    <content type="text"><![CDATA[http 报文的结构 ：请求行、请求头部、空行和请求数据4个部分组成 端口 80 明文传输 HTTP1.0 和 1.1 的区别 持久链接 还提供身份认证 HTTP响应也由三个部分组成，分别是：状态行、消息报头、响应正文。 TCP 如何保证有效连接（运输层） 确认和重传 数据效验 流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。 拥塞控制：当网络拥塞时，减少数据的发送。 滑动窗口 三个窗口 ： 发送窗口 接受窗口 拥塞窗口 输入URL 后面发生的事情 查找 地址浏览器的缓存记录 如果就需要找域名服务器 迭代查询 递归查询过 找到Ip 建立链接 http发起请求 服务器响应 渲染页面 构建dom 树 Ip和mac 地址 Ip 地址确定 主机的拓扑位置 物理地址区分不同主机的编号 mac是一个身份标识 IP 是动态变化的 类比家庭住址和身份证 慢开始 拥塞避免 快重传 连接建立好后，初始拥塞窗口的大小为1 表明可以传一个MSS 大小的数据 在到达门限阈值之后每收到一个ACK窗口值就翻倍 到了门限阈值后收到ACK就一步一步增加1， 收到三个重复ACK 就将门限阈值提到变为当前的一半，再执行加法增大 TCP UDP 传输层 TCP是可靠的 ​ TCP 通过拥塞控制 确认机制来保证可靠性 UDP 不保证可靠性 HTTP HTTPS HTTPS 其实就是加密的HTTP]]></content>
       <categories>
         <category>面试</category>
       </categories>
@@ -97,7 +113,7 @@
   <entry>
     <title><![CDATA[hashmap详解]]></title>
     <url>%2F2021%2F02%2F25%2Fhashmap%E8%AF%A6%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 loadfactor 表示hash 表的拥挤程度 ​]]></content>
+    <content type="text"><![CDATA[hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 负载因子是0.75 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 相同就替换 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 loadfactor 表示hash 表的拥挤程度 ​]]></content>
       <categories>
         <category>面试</category>
       </categories>
