@@ -39,25 +39,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mybaties]]></title>
-    <url>%2F2021%2F02%2F28%2Fmybaties%2F</url>
-    <content type="text"><![CDATA[myabties 执行器SIMPLE 方式从执行日志可以看出, 每次插入操作, 都会执行编译, 设置参数, 执行sql操作. REUSE 方式从执行日志可以看出, 只有第一次插入操作, 执行了sql编译步骤, 对其它插入操作执行了设置参数, 执行sql的操作. 批量从执行日志可以看出, 只对第一次插入操作执行了sql编译操作, 对其它插入操作仅执行了设置参数操作, 最后统一执行. 常见问题答：不同的Xml映射文件，如果配置了namespace，那么id可以重复；如果没有配置namespace，那么id不能重复；毕竟namespace不是必须的，只是最佳实践而已。]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[JVM]]></title>
     <url>%2F2021%2F02%2F28%2FJVM%2F</url>
     <content type="text"><![CDATA[JVM 内存模型 线程共享 堆和方法区 线程私有 虚拟机栈 本地方法栈 程序计数器 方法区： 原来是通过永久代来实现，现在通过元空间实现，永久代是堆的一部分，元空间属于本地内存。元空间主要存储元信息，静态变量和常量池并入堆中。 静态变量 静态代码块 静态方法 构造代码块 堆 对象的非静态成员变量 栈内存 存储局部变量 类加载机制​ 七个阶段： 加载 验证 准备 解析 初始化 使用 卸载 加载 - 通过一个类的权限域名获取他的二进制字节流 - 将二进制字节流代表的静态存储结构转化为方法区运行的数据结构 - 将java 堆生成代表这个类的class 对象作为读取方法区数据的访问入口 - Xmx 最大堆内存 Xms 初始堆内存四大引用强引用我们平常new 这个对象 软引用：内存空间够就不会回收大 弱引用，不管空间是否够都能引用他。 虚引用主要用来跟踪垃圾回收的过程。 什么可以作为GCRPOOT 的引用对象java 虚拟机栈中的引用对象 方法区中类静态属性引用对象 方法区产常量引用对象 本地方法栈中的引用对象 GC 回收的过程 1、发生Young GC之前进行检查，如果“老年代可用的连续内存空间” &lt; “新生代历次Young GC后升入老年代的对象总和的平均大小”，说明本次Young GC后可能升入老年代的对象大小，可能超过了老年代当前可用内存空间，此时会触发FullGC 2、当老年代没有足够空间存放对象时，会触发一次FullGC 3、如果元空间区域的内存达到了所设定的阈值-XX:MetaspaceSize=，也会触发FullGC。 String Stringbuffer 是线程安全的 StringBuilder线程不安全]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[计算机网络]]></title>
-    <url>%2F2021%2F02%2F28%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%2F</url>
-    <content type="text"><![CDATA[http 报文的结构 ：请求行、请求头部、空行和请求数据4个部分组成 端口 80 明文传输 HTTP1.0 和 1.1 的区别 持久链接 还提供身份认证 HTTP响应也由三个部分组成，分别是：状态行、消息报头、响应正文。 TCP 如何保证有效连接（运输层） 确认和重传 数据效验 流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。 拥塞控制：当网络拥塞时，减少数据的发送。 滑动窗口 三个窗口 ： 发送窗口 接受窗口 拥塞窗口 输入URL 后面发生的事情 查找 地址浏览器的缓存记录 如果就需要找域名服务器 迭代查询 递归查询过 找到Ip 建立链接 http发起请求 服务器响应 渲染页面 构建dom 树 Ip和mac 地址 Ip 地址确定 主机的拓扑位置 物理地址区分不同主机的编号 mac是一个身份标识 IP 是动态变化的 类比家庭住址和身份证 慢开始 拥塞避免 快重传 连接建立好后，初始拥塞窗口的大小为1 表明可以传一个MSS 大小的数据 在到达门限阈值之后每收到一个ACK窗口值就翻倍 到了门限阈值后收到ACK就一步一步增加1， 收到三个重复ACK 就将门限阈值提到变为当前的一半，再执行加法增大 TCP UDP 传输层 TCP是可靠的 ​ TCP 通过拥塞控制 确认机制来保证可靠性 UDP 不保证可靠性 HTTP HTTPS HTTPS 其实就是加密的HTTP]]></content>
       <categories>
         <category>面试</category>
       </categories>
@@ -71,9 +55,9 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[JUC]]></title>
-    <url>%2F2021%2F02%2F28%2Fjuc%2F</url>
-    <content type="text"><![CDATA[synchronized synchronized 的修饰对象 静态方法 获得本类对象 方法 本实例对象 代码块： 可以指定锁对象 原理 当程序执行到synchronized 修饰段的时候，线程会尝试获取它的监视器对象 如果监视器进入数为0 则该线程获得监视器，然后设置进入树为1 可重入 如果monitor 对象已经被其他线程获取，则该线程进入阻塞状态，直到monitor 进入数为0 wait notify wait 和 notify 就是一个暂停运行 一个通知运行，当时必须获得锁以后才可以执行该对象，而且获得的锁必须是相同的锁机制。 锁的原理也是获得监控器的对象， wait 立刻释放锁 notify 一次只唤醒一个线程且唤醒的顺序和执行wait方法的顺序一致 volatile 关键字 保证可见性 不保证原子性 禁止指令重排 守护进程和用户进程用户进程就是用户创建的进程 不需要上乘逻辑介入 主线程结束 自动结束 普通线程是一直run 完 可能 阻塞队列 普通阻塞队列 数组阻塞队列 一旦指定了队列的长度，则队列的大小不能改变 先进先出 数组实现 列表阻塞队列 先进先出 可以设置有限也可以设置无限 优先阻塞队列 插入的对象必须可以比较的 异步阻塞队列 put 必须等待take take也必须等待put lock 和 synchronized 的区别 lock 是一个类 发送异常不会释放锁 synchoronized 不会释放锁 线程池 线程池的配置 CPU 密集性 +1 IO密集型 CPU/(1-阻塞系数) 线程池的参数 核心线程数 最大线程数 存活时间 存活时间单位 任务队列 线程工厂 拒绝策略 拒绝策略比如不管什么情况直接抛出异常 或者任何处理继续运行 线程池的创建 1.newCachedThreadPool创建一个可缓存线程池程 2.newFixedThreadPool 创建一个定长线程池 3.newScheduledThreadPool 创建一个定长线程池 4.newSingleThreadExecutor 创建一个单线程化的线程池 锁机制公平锁就是按申请顺序执行 非公平锁就是部分优先级高的可以加塞 可重入锁就是进入锁内部仍然可以获得该锁 不停地空耗CPU 中心锁默认是非公平的 乐观锁默认操作不会修改数据 使用CAS 悲观锁默认会修改数据 使用Synchronized 在对记录进行修改前，先尝试为该记录加上排他锁(exclusive locks)。 如果加锁失败，说明该记录正在被修改，那么当前查询可能要等待或者抛出异常。具体响应方式由开发者根据实际需要决定。 如果成功加锁，那么就可以对记录做修改，事务完成后就会解锁了。 期间如果有其他对该记录做修改或加排他锁的操作，都会等待解锁或直接抛出异常。 死锁死锁预防是添加某种限制条件 比如设定某线程必须在另一个线程全部执行完之后才能执行 sleep yeild①sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会； ② 线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；③ sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；④ sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。 AQS 抽象对垒同步器]]></content>
+    <title><![CDATA[计算机网络]]></title>
+    <url>%2F2021%2F02%2F28%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%2F</url>
+    <content type="text"><![CDATA[http 报文的结构 ：请求行、请求头部、空行和请求数据4个部分组成 端口 80 明文传输 HTTP1.0 和 1.1 的区别 持久链接 还提供身份认证 HTTP响应也由三个部分组成，分别是：状态行、消息报头、响应正文。 TCP 如何保证有效连接（运输层） 确认和重传 数据效验 流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。 拥塞控制：当网络拥塞时，减少数据的发送。 滑动窗口 三个窗口 ： 发送窗口 接受窗口 拥塞窗口 输入URL 后面发生的事情 查找 地址浏览器的缓存记录 如果就需要找域名服务器 迭代查询 递归查询过 找到Ip 建立链接 http发起请求 服务器响应 渲染页面 构建dom 树 Ip和mac 地址 Ip 地址确定 主机的拓扑位置 物理地址区分不同主机的编号 mac是一个身份标识 IP 是动态变化的 类比家庭住址和身份证 慢开始 拥塞避免 快重传 连接建立好后，初始拥塞窗口的大小为1 表明可以传一个MSS 大小的数据 在到达门限阈值之后每收到一个ACK窗口值就翻倍 到了门限阈值后收到ACK就一步一步增加1， 收到三个重复ACK 就将门限阈值提到变为当前的一半，再执行加法增大 TCP UDP 传输层 TCP是可靠的 ​ TCP 通过拥塞控制 确认机制来保证可靠性 UDP 不保证可靠性 HTTP HTTPS HTTPS 其实就是加密的HTTP]]></content>
       <categories>
         <category>面试</category>
       </categories>
@@ -82,6 +66,22 @@
     <title><![CDATA[集合框架]]></title>
     <url>%2F2021%2F02%2F28%2Fjava%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%2F</url>
     <content type="text"><![CDATA[Hashmap 的特性 hashmap特性 hashmap 可以实现快速存取 key 允许为null 非同步 线程不安全 底层时hash表 hashmap 的底层实现原理 底层时数组加链表 put get存取对象 当执行put 方法时 , 先对键值计算hashcode()得到它在bucket数组的位置。获取对象时，先得到bucket的位置 在调用equals 找到需要的值。 put 方法的流程 计算机hashcode 判断hash表是否为空 发生碰撞放到散列表里去 hashcode 值相同 三种情况 equals 判断是否有相同 红黑树就调用红黑树的插入方法 链表就在尾部插入 如果插入链表个数为8 就转变为红黑树 如果满了就扩容。 hashmap 什么时候需要扩容 通过判断数组容量是否大于0 判断数组是否初始化过 没有初始化 是否初始化默认大小 是否初始化容量 扩容两倍将元素重新运算复制到新的散列表中 5.谈一下hashMap中get是如何实现的？ 对key的hashCode进行hashing，与运算计算下标获取bucket位置，如果在桶的首位上就可以找到就直接返回，否则在树中找或者链表中遍历找，如果有hash冲突，则利用equals方法去遍历链表查找节点。 hashmap 和 hashtable 的区别 相同点 都是key-value 存储 HashMap允许Key-value为null，hashTable不允许； hashMap没有考虑同步，是线程不安全的。hashTable是线程安全的，给api套上了一层synchronized修饰; hashmap 的初始容量是16 hashtable 的初始容量是 11 (2*n+1) hashmap 自定义的hash算法 hashtable 没有自定义hash算法 treemap 一般按照key 排序 String StringBuffer StringBuilder Stringbuffer 是线程安全的 StringBuilder线程不安全]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[JUC]]></title>
+    <url>%2F2021%2F02%2F28%2Fjuc%2F</url>
+    <content type="text"><![CDATA[synchronized synchronized 的修饰对象 静态方法 获得本类对象 方法 本实例对象 代码块： 可以指定锁对象 原理 当程序执行到synchronized 修饰段的时候，线程会尝试获取它的监视器对象 如果监视器进入数为0 则该线程获得监视器，然后设置进入树为1 可重入 如果monitor 对象已经被其他线程获取，则该线程进入阻塞状态，直到monitor 进入数为0 wait notify wait 和 notify 就是一个暂停运行 一个通知运行，当时必须获得锁以后才可以执行该对象，而且获得的锁必须是相同的锁机制。 锁的原理也是获得监控器的对象， wait 立刻释放锁 notify 一次只唤醒一个线程且唤醒的顺序和执行wait方法的顺序一致 volatile 关键字 保证可见性 不保证原子性 禁止指令重排 守护进程和用户进程用户进程就是用户创建的进程 不需要上乘逻辑介入 主线程结束 自动结束 普通线程是一直run 完 可能 阻塞队列 普通阻塞队列 数组阻塞队列 一旦指定了队列的长度，则队列的大小不能改变 先进先出 数组实现 列表阻塞队列 先进先出 可以设置有限也可以设置无限 优先阻塞队列 插入的对象必须可以比较的 异步阻塞队列 put 必须等待take take也必须等待put lock 和 synchronized 的区别 lock 是一个类 发送异常不会释放锁 synchoronized 不会释放锁 线程池 线程池的配置 CPU 密集性 +1 IO密集型 CPU/(1-阻塞系数) 线程池的参数 核心线程数 最大线程数 存活时间 存活时间单位 任务队列 线程工厂 拒绝策略 拒绝策略比如不管什么情况直接抛出异常 或者任何处理继续运行 线程池的创建 1.newCachedThreadPool创建一个可缓存线程池程 2.newFixedThreadPool 创建一个定长线程池 3.newScheduledThreadPool 创建一个定长线程池 4.newSingleThreadExecutor 创建一个单线程化的线程池 锁机制公平锁就是按申请顺序执行 非公平锁就是部分优先级高的可以加塞 可重入锁就是进入锁内部仍然可以获得该锁 不停地空耗CPU 中心锁默认是非公平的 乐观锁默认操作不会修改数据 使用CAS 悲观锁默认会修改数据 使用Synchronized 在对记录进行修改前，先尝试为该记录加上排他锁(exclusive locks)。 如果加锁失败，说明该记录正在被修改，那么当前查询可能要等待或者抛出异常。具体响应方式由开发者根据实际需要决定。 如果成功加锁，那么就可以对记录做修改，事务完成后就会解锁了。 期间如果有其他对该记录做修改或加排他锁的操作，都会等待解锁或直接抛出异常。 死锁死锁预防是添加某种限制条件 比如设定某线程必须在另一个线程全部执行完之后才能执行 sleep yeild①sleep()方法给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会；yield()方法只会给相同优先级或更高优先级的线程以运行的机会； ② 线程执行sleep()方法后转入阻塞（blocked）状态，而执行yield()方法后转入就绪（ready）状态；③ sleep()方法声明抛出InterruptedException，而yield()方法没有声明任何异常；④ sleep()方法比yield()方法（跟操作系统CPU调度相关）具有更好的可移植性。 AQS 抽象对垒同步器]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[mybaties]]></title>
+    <url>%2F2021%2F02%2F28%2Fmybaties%2F</url>
+    <content type="text"><![CDATA[myabties 执行器SIMPLE 方式从执行日志可以看出, 每次插入操作, 都会执行编译, 设置参数, 执行sql操作. REUSE 方式从执行日志可以看出, 只有第一次插入操作, 执行了sql编译步骤, 对其它插入操作执行了设置参数, 执行sql的操作. 批量从执行日志可以看出, 只对第一次插入操作执行了sql编译操作, 对其它插入操作仅执行了设置参数操作, 最后统一执行. 常见问题答：不同的Xml映射文件，如果配置了namespace，那么id可以重复；如果没有配置namespace，那么id不能重复；毕竟namespace不是必须的，只是最佳实践而已。]]></content>
       <categories>
         <category>面试</category>
       </categories>
@@ -332,17 +332,6 @@
       </categories>
       <tags>
         <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[如何学习一门知识]]></title>
-    <url>%2F2019%2F09%2F30%2F%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"><![CDATA[两种学习方法 1.1 了解知识的产生背景，了解知识的大致框架，慢慢往里面填空。 1.2 做测试，错了给自己电击反馈 学习的一些技巧 2.1 确定学习的输入输出 2.2 康奈尔笔记法，学习的内容自己用自己的话复述出来，最后做个整体总结。]]></content>
-      <categories>
-        <category>哲学与生活</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
